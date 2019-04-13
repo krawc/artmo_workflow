@@ -1,3 +1,12 @@
 */
 !themes
-!/themes/*
+!/themes/vantage-child/*
+!plugins
+!/plugins/wc-frontend-manager
+!/plugins/wc-frontend-manager/*
+!/plugins/wc-frontend-manager-groups-staffs
+!/plugins/wc-frontend-manager-groups-staffs/*
+!/plugins/wc-frontend-manager-ultimate
+!/plugins/wc-frontend-manager-ultimate/*
+!/plugins/wc-multivendor-membership
+!/plugins/wc-multivendor-membership/*
