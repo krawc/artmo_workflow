@@ -7,9 +7,6 @@ remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
 if (!session_id()) {
     session_start();
 }
-//Array with countries - for locations in WooCommerce and UM
-$country_arr = array(
-);
 
 function artmo_country_input($field) {
 
