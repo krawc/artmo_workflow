@@ -1,0 +1,17 @@
+.wcfm_wp_admin_view, #add_new_product_dashboard {
+	display: none !important;
+}
+ 
+#wcfm-main-contentainer {
+	overflow-y: scroll;
+	position: absolute;
+	left: -99999px;
+}
+
+#excerpt {
+	height: 100px;
+}
+
+#description {
+	height: 200px;
+}

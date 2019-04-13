@@ -1,0 +1,90 @@
+.appointment-status {
+  font-size: 20px;	
+}
+
+.wcicon-status-complete:before, .wcicon-status-paid:before {
+	content: "\e015";
+}
+
+.wcicon-status-confirmed:before, .wcicon-status-wc-partial-payment:before {
+	content: "\e011";
+}
+
+.wcicon-status-pending-confirmation:before {
+  content: "\e012";
+}
+
+.status-cancelled { color: #36393D; }
+.wcicon-status-complete { color: #4096EE; }
+.wcicon-status-confirmed { color: #008C00; }
+.wcicon-status-paid { color: #FF0084; }
+.wcicon-status-unpaid { color: #6d6d6d; }
+.wcicon-status-wc-partial-payment { color: #C79810; }
+.wcicon-status-pending-confirmation { color: #FF7400; }
+
+.appointment-orderno {
+	padding: 2px 4px;
+	color: #fff;
+	border-radius: 2px;
+	font-size: 12px;
+	line-height: 10px;
+	background-color: #4096EE;
+}
+
+.appointment-orderno a {
+	color: #fff;
+	text-decoration: none;
+}
+
+ul.wcfm_appointments_menus {
+	list-style: none;
+	margin-left: 0px;
+	padding: 0;
+	font-size: 13px;
+	color: #666;
+	display: table-cell;
+	float: left;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+ul.wcfm_appointments_menus li {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+
+ul.wcfm_appointments_menus li a {
+	color: #00897b;
+	font-weight: 500;
+	-webkit-transition-property: bappointment,background,color;
+	transition-property: bappointment,background,color;
+	-webkit-transition-duration: .05s;
+	transition-duration: .05s;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+#wcfm-main-contentainer ul.wcfm_appointments_menus li a.active {
+	color: #666;
+}
+
+table.dataTable.display tr td:nth-child(3), 
+table.dataTable.display tr td:nth-child(4), 
+table.dataTable.display tr td:nth-child(5), 
+table.dataTable.display tr td:nth-child(6), 
+table.dataTable.display tr td:nth-child(7),
+table.dataTable.display tr td:nth-child(8),
+table.dataTable.display tr th:nth-child(3),
+table.dataTable.display tr th:nth-child(4),
+table.dataTable.display tr th:nth-child(5), 
+table.dataTable.display tr th:nth-child(6),
+table.dataTable.display tr th:nth-child(7),
+table.dataTable.display tr th:nth-child(8) {
+	text-align: center;
+}
+
+@media only screen and (max-width: 414px) {
+	a#wcfm_appointments_calendar { display: none; }
+}
