@@ -5,6 +5,9 @@
 !/themes/vantage-child/*/*
 !/themes/vantage-child/*/*/*
 !/themes/vantage-child/*/*/*/*
+!/themes/vantage-child/*/*/*/*/*
+!/themes/vantage-child/*/*/*/*/*/*
+!/themes/vantage-child/*/*/*/*/*/*/*
 !plugins
 plugins/plugins.zip
 !/plugins/wc-frontend-manager
@@ -14,6 +17,9 @@ plugins/plugins.zip
 !/plugins/wc-frontend-manager/*/*/*/*
 !/plugins/wc-frontend-manager/*/*/*/*/*
 !/plugins/wc-frontend-manager/*/*/*/*/*/*
+!/plugins/wc-frontend-manager/*/*/*/*/*/*/*
+!/plugins/wc-frontend-manager/*/*/*/*/*/*/*/*
+!/plugins/wc-frontend-manager/*/*/*/*/*/*/*/*/*
 !/plugins/wc-frontend-manager-groups-staffs
 !/plugins/wc-frontend-manager-groups-staffs/*
 !/plugins/wc-frontend-manager-groups-staffs/*/*
@@ -21,6 +27,9 @@ plugins/plugins.zip
 !/plugins/wc-frontend-manager-groups-staffs/*/*/*/*
 !/plugins/wc-frontend-manager-groups-staffs/*/*/*/*/*
 !/plugins/wc-frontend-manager-groups-staffs/*/*/*/*/*/*
+!/plugins/wc-frontend-manager-groups-staffs/*/*/*/*/*/*/*
+!/plugins/wc-frontend-manager-groups-staffs/*/*/*/*/*/*/*/*
+!/plugins/wc-frontend-manager-groups-staffs/*/*/*/*/*/*/*/*/*
 !/plugins/wc-frontend-manager-ultimate
 !/plugins/wc-frontend-manager-ultimate/*
 !/plugins/wc-frontend-manager-ultimate/*/*
@@ -28,6 +37,9 @@ plugins/plugins.zip
 !/plugins/wc-frontend-manager-ultimate/*/*/*/*
 !/plugins/wc-frontend-manager-ultimate/*/*/*/*/*
 !/plugins/wc-frontend-manager-ultimate/*/*/*/*/*/*
+!/plugins/wc-frontend-manager-ultimate/*/*/*/*/*/*/*
+!/plugins/wc-frontend-manager-ultimate/*/*/*/*/*/*/*/*
+!/plugins/wc-frontend-manager-ultimate/*/*/*/*/*/*/*/*/*
 !/plugins/wc-multivendor-membership
 !/plugins/wc-multivendor-membership/*
 !/plugins/wc-multivendor-membership/*/*
@@ -35,3 +47,6 @@ plugins/plugins.zip
 !/plugins/wc-multivendor-membership/*/*/*/*
 !/plugins/wc-multivendor-membership/*/*/*/*/*
 !/plugins/wc-multivendor-membership/*/*/*/*/*/*
+!/plugins/wc-multivendor-membership/*/*/*/*/*/*/*
+!/plugins/wc-multivendor-membership/*/*/*/*/*/*/*/*
+!/plugins/wc-multivendor-membership/*/*/*/*/*/*/*/*/*
