@@ -1,0 +1,25 @@
+input[type="text"]._woo_vou_enable_recipient_name_ele, input[type="text"]._woo_vou_enable_recipient_email_ele, input[type="text"]._woo_vou_enable_recipient_message_ele, input[type="text"]._woo_vou_enable_recipient_giftdate_ele, select#_woo_vou_days_diff, input#_woo_vou_custom_days {
+	width: 20% !important;
+	margin-right: 10px !important; 
+}
+
+input[type="checkbox"]._woo_vou_enable_recipient_name_ele, input[type="checkbox"]._woo_vou_enable_recipient_email_ele, input[type="checkbox"]._woo_vou_enable_recipient_message_ele, input[type="checkbox"]._woo_vou_enable_recipient_giftdate_ele {
+	margin-right: 5px !important; 
+}
+
+.wc_pdf_vouchers_desc {
+	float: right !important;
+	width: 59% !important;
+	margin-bottom: 15px !important;
+}
+
+p.woo_vou_days_diff_custom_ele {
+	width: 125px;
+}
+
+#_woo_vou_generate_codes input.wcfm_voucher_code_popup {
+	float: none;
+	margin-left: 39%;
+	margin-bottom: 15px;
+	margin-top: -15px;
+}
