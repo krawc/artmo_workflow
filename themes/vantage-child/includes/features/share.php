@@ -33,7 +33,7 @@ function artmo_get_share_post_component($url = '') {
   }
 
   $response .= '<div class="share-btns-container share-btns-post">';
-  $response .= '<button class="share-btns-trig"><i class="ion ion-android-share-alt"></i> Share</button>';
+  $response .= '<div class="share-btns-trig"><i class="ion ion-android-share-alt"></i> Share</div>';
   $response .= artmo_get_share_btns(urlencode($url));
   $response .= '</div>';
 

@@ -1401,6 +1401,9 @@ iframe.profile-embed body {
     max-width: 100px;
     transition: all 0.3s ease-in-out;
     white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     i {
       transition: all 0.3s ease-in-out;
       margin-right: 5px;

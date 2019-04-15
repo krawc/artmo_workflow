@@ -295,7 +295,7 @@ function retrieve_genre_tags_artist() {
 
       //return the tags
       $contents .= '<div class="um-profile-genres">';
-      $contents .= '<div class="genres-title um-profile um-viewing um-field-label"><label>' . __('GENRES:', 'vantage-child') . '</label></div>';
+      $contents .= '<div class="genres-title um-profile um-viewing um-field-label"><label>' . __('GENRES', 'vantage-child') . '</label></div>';
       $contents .= '<div class="um-profile-tags">';
       foreach ($tags as $tag) {
         $contents .= '<span class="um-profile-genre-tag"><a href="'. get_permalink( woocommerce_get_page_id( 'shop' ) ) . '/?swoof=1&genre_tag=' . sanitize_title($tag) .'">'.$tag.'</a></span>';
@@ -354,7 +354,7 @@ function retrieve_series_artist() {
 
         if (!empty($series)) {
           $contents .= '<div class="um-profile-genres">';
-          $contents .= '<div class="genres-title um-profile um-viewing um-field-label"><label>' . __('SERIES:', 'vantage-child') . '</label></div>';
+          $contents .= '<div class="genres-title um-profile um-viewing um-field-label"><label>' . __('SERIES', 'vantage-child') . '</label></div>';
           $contents .= '<div class="um-profile-tags">';
           foreach ($series as $tag) {
             $contents .= '<span class="um-profile-genre-tag"><a href="'. get_permalink( woocommerce_get_page_id( 'shop' ) ) . '/?swoof=1&artists_cat=' . sanitize_title($tag) .'">'.$tag.'</a></span>';

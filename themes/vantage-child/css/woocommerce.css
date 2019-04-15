@@ -282,7 +282,11 @@ li.menu-item.wpmenucart-submenu-item.clearfix a {
       top: 10px;
       left: 10px; }
     .woocommerce div.product div.images .woocommerce-product-gallery__wrapper .share-btns-trig {
-      font-size: 0; }
+      font-size: 0;
+      display: flex;
+      height: 39px;
+      text-align: center;
+      align-items: center; }
     .woocommerce div.product div.images .woocommerce-product-gallery__wrapper .share-btns-trig i {
       font-size: 14px;
       padding: 0 1em;

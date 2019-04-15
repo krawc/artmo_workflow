@@ -395,6 +395,10 @@ li {
     }
     .share-btns-trig {
       font-size: 0;
+      display: flex;
+      height: 39px;
+      text-align: center;
+      align-items: center;
       i {
         font-size: 14px;
         padding: 0 1em;

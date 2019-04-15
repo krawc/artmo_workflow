@@ -992,7 +992,10 @@ iframe.profile-embed body {
     padding: 0 1em;
     max-width: 100px;
     transition: all 0.3s ease-in-out;
-    white-space: nowrap; }
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   .share-btns-container .share-btns-trig i {
     transition: all 0.3s ease-in-out;
     margin-right: 5px;
@@ -1185,6 +1188,9 @@ h2.um-tabs-single-header {
 div.um-photo img {
   max-height: none !important;
   max-width: 100% !important; }
+
+.um-profile .um-row-heading {
+  margin-bottom: 20px !important; }
 
 .um-profile-genres .um-profile-genre-tag {
   padding: 0.5em 0.3em;
@@ -1447,6 +1453,36 @@ div.um-photo img {
       display: flex;
       justify-content: left;
       margin-bottom: 1em; } }
+
+@media screen and (max-width: 600px) {
+  .um-profile-meta {
+    display: flex;
+    flex-direction: column; }
+    .um-profile-meta .um-coverbtns {
+      display: inline-flex;
+      justify-content: center;
+      align-items: stretch;
+      margin-top: 2em;
+      order: 5; }
+    .um-profile-meta .um-followers-btn {
+      margin: 0;
+      display: flex; }
+    .um-profile-meta .um-friends-coverbtn {
+      display: flex;
+      margin-left: 10px; }
+      .um-profile-meta .um-friends-coverbtn a {
+        line-height: 14px !important; }
+    .um-profile-meta .um-friends-nocoverbtn {
+      display: none !important; }
+    .um-profile-meta .um-friends-coverbtn {
+      display: flex !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      position: relative !important;
+      margin-left: 10px !important; }
+
+  .um-profile-navbar.um-messaging-bar .um-messaging-btn {
+    margin-left: 0px !important; } }
 
 @media screen and (max-width: 767px) {
   .members-slider {
@@ -4125,7 +4161,11 @@ li.menu-item.wpmenucart-submenu-item.clearfix a {
     top: 10px;
     left: 10px; }
   .woocommerce div.product div.images .woocommerce-product-gallery__wrapper .share-btns-trig {
-    font-size: 0; }
+    font-size: 0;
+    display: flex;
+    height: 39px;
+    text-align: center;
+    align-items: center; }
   .woocommerce div.product div.images .woocommerce-product-gallery__wrapper .share-btns-trig i {
     font-size: 14px;
     padding: 0 1em;

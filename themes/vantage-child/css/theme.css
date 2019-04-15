@@ -981,7 +981,10 @@ iframe.profile-embed body {
     padding: 0 1em;
     max-width: 100px;
     transition: all 0.3s ease-in-out;
-    white-space: nowrap; }
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   .share-btns-container .share-btns-trig i {
     transition: all 0.3s ease-in-out;
     margin-right: 5px;
