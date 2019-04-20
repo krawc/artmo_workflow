@@ -90,6 +90,12 @@ div.um-photo img {
 .um-profile .um-row-heading {
   margin-bottom: 20px !important; }
 
+.um-profile-genres {
+  margin: 1em 0 2em; }
+
+.um-page-user .um-form .um-field {
+  margin: 2em 0; }
+
 .um-profile-genres .um-profile-genre-tag {
   padding: 0.5em 0.3em;
   line-height: 1.2em;
@@ -542,19 +548,19 @@ div.um-photo img {
 .um input[type=submit]:disabled:hover {
   background: #000 !important; }
 
-.um input[type=submit].um-button.um-alt, .um input[type=submit].um-button.um-alt:focus, .um a.um-button.um-alt, .um a.um-button.um-disabled.um-alt:hover, .um a.um-button.um-disabled.um-alt:focus, .um a.um-button.um-disabled.um-alt:active, .um .um-member a.um-button.um-unfriend-btn:hover {
+.um .um-button.um-alt, .um input[type=submit].um-button.um-alt {
+  background: #666 !important; }
+
+.um input[type=submit].um-button.um-alt:focus, .um a.um-button.um-disabled.um-alt:hover, .um a.um-button.um-disabled.um-alt:focus, .um a.um-button.um-disabled.um-alt:active, .um .um-member a.um-button.um-unfriend-btn:hover {
   background: #000 !important; }
 
 .um .um-button.um-alt:hover, .um input[type=submit].um-button.um-alt:hover {
   background: #000 !important; }
 
-.um .um-button.um-alt, .um input[type=submit].um-button.um-alt {
-  background: #666 !important; }
-
 .um a.um-link {
   color: #000 !important; }
 
-.um input[type=submit].um-button:hover, .um a.um-button.um-alt:hover {
+.um input[type=submit].um-button:hover {
   background-color: #666 !important;
   color: #fff; }
 
@@ -562,11 +568,11 @@ div.um-photo img {
   background: #000;
   color: #fff; }
 
-.um-member-card .um-button.um-alt.um-friend-btn, .um-profile-body .um-button.um-alt.um-friend-btn {
+.um-member-card .um-button.um-alt.um-friend-btn, .um-profile-body .um-button.um-alt.um-friend-btn, .um .um-member .um-member-card .um-members-follow-btn a.um-button.um-alt, .um .um-member .um-profile-body .um-members-follow-btn a.um-button.um-alt {
   background: #000 !important;
   color: #fff !important; }
 
-.um-member-card .um-button.um-alt.um-friend-btn:hover, .um-profile-body .um-button.um-alt.um-friend-btn:hover, .um a.um-button.um-do-search:hover {
+.um-member-card .um-button.um-alt.um-friend-btn:hover, .um-profile-body .um-button.um-alt.um-friend-btn:hover, .um .um-member .um-member-card .um-members-follow-btn a.um-button.um-alt:hover, .um .um-member .um-profile-body .um-members-follow-btn a.um-button.um-alt:hover, .um a.um-button.um-do-search:hover {
   background: #666 !important;
   color: #fff !important; }
 

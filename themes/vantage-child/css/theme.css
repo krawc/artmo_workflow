@@ -96,7 +96,8 @@ body.responsive #masthead.masthead-logo-in-menu .main-navigation .logo {
     flex: 1; }
   .entry-title-container .share-btns-container {
     flex: 0 0 240px;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    max-height: 40px; }
 
 #branding {
   padding-bottom: 0px; }

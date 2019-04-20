@@ -1262,7 +1262,7 @@ li {
     .artmo-wishlist,
     .um-message-btn,
     .share-btns-container {
-      margin: 5px 5px 0px 0px !important;
+      margin: 5px 5px 0px 0px!important;
       position: relative;
     }
     .share-btns-trig {
@@ -1276,6 +1276,7 @@ li {
         margin-right: 0;
         transform: scale(1);
         opacity: 1;
+        text-align: center;
       }
     }
     .share-btns {
@@ -1397,10 +1398,6 @@ li {
       .artwork_details, .artwork_size {
         margin-bottom: 0em;
         font-size: 1em;
-        .product-details__field,
-        .product-size__field {
-          white-space: nowrap;
-        }
       }
     }
     div.product div.images {
@@ -1999,11 +1996,39 @@ li {
   .full-row {
     flex-direction: column;
   }
+
 }
 
-// @media (max-width: 480px) {
-//
-// }
+@media (max-width: 480px) {
+  .woocommerce #page-wrapper {
+    .um-message-btn {
+      flex: 0 0 100%;
+      order: 1;
+      margin-bottom: 5px!important;
+    }
+    .share-btns-container {
+      order: 4;
+      flex: 0 0 38px;
+      margin: 0px!important;
+    }
+    .artmo-wishlist {
+      padding: 12px 0!important;
+      flex: 0 0 150px;
+      order: 3;
+      margin: 0 5px 0 0!important;
+    }
+    .single_add_to_cart_button.button.alt {
+      flex: 1;
+      order: 2;
+      margin: 0 5px 0 0!important;
+    }
+    .product-tax-section {
+      .product-tax-name {
+        flex: 0 0 100%;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   body.responsive.woocommerce-page ul.products.columns-1 li.product {
@@ -2027,22 +2052,17 @@ li {
       width: 100%;
     }
   }
-  .artmo-wishlist {
-    &.add-to-wishlist, &.see-on-wishlist {
-      flex: 0 0 49%;
-      margin: 0% 0% 2% 1%;
-      margin-right: 0px!important;
-      padding: 12px 0px!important;
-    }
+
+  .woocommerce .product_meta .product-tax-section {
+    flex-wrap: wrap;
   }
+
   .woo-filtering div.widget.woocommerce.widget_product_categories .dropdown_product_cat {
     padding: 0px;
   }
   .woocommerce {
     #page-wrapper {
       .before_payment button.button, .wl-button-wrap a.wl-add-to.wl-add-but.button.present, .single_add_to_cart_button.button.alt {
-        flex: 0 0 49%;
-        margin: 0% 1% 2% 0%;
         text-align: center;
       }
     }
@@ -2443,7 +2463,6 @@ li {
     }
     #page-wrapper {
       .before_payment button.button, .wl-button-wrap a.wl-add-to.wl-add-but.button.present, .entry-summary .single_add_to_cart_button.button.alt {
-        width: calc(50% - 0.5em);
         text-align: center;
       }
       .before_payment button.button, .wl-button-wrap a.wl-add-to.wl-add-but.button, .single_add_to_cart_button.button.alt {

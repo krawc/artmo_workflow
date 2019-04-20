@@ -443,9 +443,9 @@ function artmo_ultimatemember_message_button( $args = array() ) {
 }
 
 remove_action( 'um_after_profile_header_name_args', 'um_social_links_icons', 50 );
-add_action( 'um_after_profile_header_name_args', 'artmo_um_social_links_icons', 50 );
+add_action( 'um_after_header_meta', 'artmo_um_social_links_icons', 10, 2 );
 
-function artmo_um_social_links_icons( $args ) {
+function artmo_um_social_links_icons( $userid, $args ) {
   if ( ! empty( $args['show_social_links'] ) ) {
 
 		echo '<div class="um-profile-connect um-member-connect">';

@@ -6,9 +6,9 @@ add_shortcode('artmo_profiles_carousel', 'artmo_profiles_carousel');
 
 function artmo_profiles_carousel() {
 
-  $arguments = array (
-      'role__not_in' => array('administrator'),
-      'number' => '40',
+  $arguments_artists = array (
+      'role__in' => array('um_artist'),
+      'number' => '20',
       'order' => 'DESC',
       'orderby' => 'meta_value_num',
       'meta_key' => '_um_last_login',
@@ -37,9 +37,45 @@ function artmo_profiles_carousel() {
       )
   );
 
-  $queery = new WP_User_Query($arguments);
-  $mostRecentActivity = $queery->get_results();
-  $allUsers = $mostRecentActivity;
+  $artists_query = new WP_User_Query($arguments_artists);
+  $artists = $artists_query->get_results();
+
+
+  $arguments_non_artists = array (
+      'role__not_in' => array('administrator', 'um_artist'),
+      'number' => '20',
+      'order' => 'DESC',
+      'orderby' => 'meta_value_num',
+      'meta_key' => '_um_last_login',
+      'meta_query' => array(
+        'relation' => 'AND',
+        array(
+          'key' => 'cover_photo',
+          'value' => '',
+          'compare' => '!='
+        ),
+        array(
+          'key' => 'profile_photo',
+          'value' => '',
+          'compare' => '!='
+        ),
+        array(
+          'key' => 'countryField',
+          'value' => '',
+          'compare' => '!='
+        ),
+        array(
+          'key' => 'cityField',
+          'value' => '',
+          'compare' => '!='
+        ),
+      )
+  );
+
+  $non_artists_query = new WP_User_Query($arguments_non_artists);
+  $non_artists = $non_artists_query->get_results();
+
+  $allUsers = array_merge($artists, $non_artists);
 
   shuffle($allUsers);
 

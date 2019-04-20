@@ -70,7 +70,7 @@ function logged_out_class($classes) {
 }
 
 
-add_filter('wp_dropdown_users_args', 'assign_subscriber_author_func', 10, 2);
+//add_filter('wp_dropdown_users_args', 'assign_subscriber_author_func', 10, 2);
  function assign_subscriber_author_func($query_args, $r){
     $query_arg['who'] = 'um_artist';
     return $query_arg;

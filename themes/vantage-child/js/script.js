@@ -58,7 +58,8 @@ jQuery(document).ready(function( $ ){
       speed: 200,
       moreLink: '<div class="readMore-btn"><a href="#"><i class="fa fa-angle-down" aria-hidden="true"></i></a></div>',
       lessLink: '<div class="readMore-btn"><a href="#"><i class="fa fa-angle-up" aria-hidden="true"></i></a></div>',
-      collapsedHeight: 150
+      collapsedHeight: 200,
+      heightMargin: 50,
     });
     $('.single-product .woocommerce-product_details.artwork_description').readmore({
       speed: 100,
