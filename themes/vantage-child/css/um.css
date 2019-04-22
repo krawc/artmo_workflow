@@ -112,87 +112,6 @@ div.um-photo img {
 .um-profile-nav-item span.title {
   text-transform: uppercase;
   font-weight: 400; }
-/* Members slider */
-.members-slider {
-  max-width: 1280px;
-  width: calc(100% - 30px);
-  margin: 50px auto;
-  overflow: hidden;
-  position: relative; }
-  .members-slider .members-slider-header {
-    text-align: center;
-    font-size: 1.6em;
-    color: #fff;
-    line-height: 38px;
-    margin: 10px 0px; }
-  .members-slider .members-slider-nav {
-    position: absolute;
-    display: flex;
-    flex: 0 0 100%;
-    top: 5px;
-    justify-content: space-between;
-    width: 100%; }
-    .members-slider .members-slider-nav .slider-nav-bck, .members-slider .members-slider-nav .slider-nav-fwd {
-      width: 37px;
-      height: 36px;
-      font-size: 16px;
-      line-height: 36px;
-      text-align: center;
-      cursor: pointer;
-      margin: 0.5%;
-      border: 1px solid #f2f2f2;
-      color: #f2f2f2;
-      -moz-border-radius: 4px;
-      -webkit-border-radius: 4px;
-      border-radius: 4px;
-      -webkit-transition: all 0.3s linear;
-      -moz-transition: all 0.3s linear;
-      -ms-transition: all 0.3s linear;
-      -o-transition: all 0.3s linear;
-      transition: all 0.3s linear; }
-      .members-slider .members-slider-nav .slider-nav-bck i, .members-slider .members-slider-nav .slider-nav-fwd i {
-        pointer-events: none; }
-  .members-slider .um-member-name a {
-    font-size: 14px;
-    line-height: 24px;
-    padding: 0px; }
-  .members-slider .um-member-meta {
-    display: block;
-    margin: 0px;
-    padding: 0px 10px;
-    border-top: 0px;
-    font-weight: 300; }
-    .members-slider .um-member-meta p {
-      margin: 0px;
-      line-height: 1.2em; }
-  .members-slider .um-member-follow a {
-    background: #000;
-    color: #fff !important;
-    box-shadow: none;
-    border-radius: 0px !important;
-    margin-top: 12px !important; }
-    .members-slider .um-member-follow a:hover {
-      background: #666 !important;
-      color: #fff !important; }
-
-.members-slider-container {
-  display: flex;
-  transition: transform 0.3s ease-in-out; }
-  .members-slider-container .um-member {
-    float: none;
-    flex: 0 0 15.6666667%;
-    margin-left: 0.5%;
-    margin-right: 0.5%; }
-  .members-slider-container .um-member-cover {
-    position: initial; }
-  .members-slider-container .um-member-photo {
-    position: relative;
-    margin-top: -80px;
-    padding: 40px 0 10px 0; }
-    .members-slider-container .um-member-photo img {
-      object-fit: cover;
-      width: 80px;
-      height: 80px; }
 /* Profile completeness */
 .entry-content .um-completeness-widget .um-completeness-steps ~ div a {
   padding: 0.8em 1em;
@@ -522,9 +441,11 @@ div.um-photo img {
   border-radius: 0px; }
 /*the button add friend, friend request send, etc. inside the cover photo,
  was white on white by default*/
-.um .um-friends-coverbtn a.um-button, .um .um-friends-coverbtn a.um-button:hover {
+.um .um-friends-coverbtn a.um-button, .um .um-followers-btn a.um-button {
   background: #000 !important;
   color: #fff !important; }
+  .um .um-friends-coverbtn a.um-button:hover, .um .um-followers-btn a.um-button:hover {
+    background: #666 !important; }
 
 .um .um-member .um-members-follow-btn a, .um a.um-unfollow-btn.um-button, .um a.um-unfriend-btn.um-button.um-alt, .um a.um-friend-pending-btn.um-button.um-alt {
   background: #666 !important;
@@ -568,11 +489,11 @@ div.um-photo img {
   background: #000;
   color: #fff; }
 
-.um-member-card .um-button.um-alt.um-friend-btn, .um-profile-body .um-button.um-alt.um-friend-btn, .um .um-member .um-member-card .um-members-follow-btn a.um-button.um-alt, .um .um-member .um-profile-body .um-members-follow-btn a.um-button.um-alt {
+.um-member-card .um-button.um-alt.um-friend-btn, .um-member-card .um-button.um-login-to-friend-btn, .um-profile-body .um-button.um-alt.um-friend-btn, .um-profile-body .um-button.um-login-to-friend-btn, .um-profile-body .um-button.um-login-to-follow-btn, .um .um-member .um-member-card .um-members-follow-btn a.um-button.um-alt, .um .um-member .um-profile-body .um-members-follow-btn a.um-button.um-alt {
   background: #000 !important;
   color: #fff !important; }
 
-.um-member-card .um-button.um-alt.um-friend-btn:hover, .um-profile-body .um-button.um-alt.um-friend-btn:hover, .um .um-member .um-member-card .um-members-follow-btn a.um-button.um-alt:hover, .um .um-member .um-profile-body .um-members-follow-btn a.um-button.um-alt:hover, .um a.um-button.um-do-search:hover {
+.um-member-card .um-button.um-alt.um-friend-btn:hover, .um-member-card .um-button.um-login-to-friend-btn:hover, .um-profile-body .um-button.um-alt.um-friend-btn:hover, .um-profile-body .um-button.um-login-to-friend-btn:hover, .um-profile-body .um-button.um-login-to-follow-btn:hover, .um .um-member .um-member-card .um-members-follow-btn a.um-button.um-alt:hover, .um .um-member .um-profile-body .um-members-follow-btn a.um-button.um-alt:hover, .um a.um-button.um-do-search:hover {
   background: #666 !important;
   color: #fff !important; }
 

@@ -657,6 +657,112 @@ body > .um-notification-b {
 }
 
 
+
+/* Members slider */
+
+
+.members-slider {
+  max-width: 1280px;
+  width: calc(100% - 30px);
+  margin: 50px auto;
+  overflow: hidden;
+  position: relative;
+  .members-slider-header {
+    text-align: center;
+    font-size: 1.6em;
+    color: #fff;
+    line-height: 38px;
+    margin: 10px 0px;
+  }
+  .members-slider-nav {
+    position: absolute;
+    display: flex;
+    flex: 0 0 100%;
+    top: 5px;
+    justify-content: space-between;
+    width: 100%;
+    .slider-nav-bck,
+    .slider-nav-fwd {
+      width: 37px;
+      height: 36px;
+      font-size: 16px;
+      line-height: 36px;
+      text-align: center;
+      cursor: pointer;
+      margin: 0.5%;
+      border: 1px solid #f2f2f2;
+      color: #f2f2f2;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-transition: all 0.3s linear;
+      -moz-transition: all 0.3s linear;
+      -ms-transition: all 0.3s linear;
+      -o-transition: all 0.3s linear;
+      transition: all 0.3s linear;
+      i {
+        pointer-events: none;
+      }
+    }
+  }
+  .um-member-name {
+    a {
+      font-size: 14px;
+      line-height: 24px;
+      padding: 0px;
+    }
+  }
+  .um-member-meta {
+    display: block;
+    margin: 0px;
+    padding: 0px 10px;
+    border-top: 0px;
+    font-weight: 300;
+    p {
+      margin: 0px;
+      line-height: 1.2em;
+    }
+  }
+  .um-member-follow a {
+    background: #000;
+    color: #fff!important;
+    box-shadow: none;
+    border-radius: 0px!important;
+    margin-top: 12px!important;
+
+    &:hover {
+      background: #666!important;
+      color: #fff!important;
+    }
+  }
+}
+
+
+.members-slider-container {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  .um-member {
+    float: none;
+    flex: 0 0 15.6666667%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+  }
+  .um-member-cover {
+    position: initial;
+  }
+
+  .um-member-photo {
+    position: relative;
+    margin-top: -80px;
+    padding: 40px 0 10px 0;
+    img {
+      object-fit: cover;
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
+
 .embed-container {
   display: flex;
   flex-wrap: wrap;

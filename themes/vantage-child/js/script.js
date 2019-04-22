@@ -60,6 +60,13 @@ jQuery(document).ready(function( $ ){
       lessLink: '<div class="readMore-btn"><a href="#"><i class="fa fa-angle-up" aria-hidden="true"></i></a></div>',
       collapsedHeight: 200,
       heightMargin: 50,
+      afterToggle: function(trigger, element, expanded) {
+         if(expanded) { // The "Open" link was clicked
+           $(element).css( 'height', 'auto' );
+         } else {
+           $(element).css( 'height', collheight + 'px'  );
+         }
+      }
     });
     $('.single-product .woocommerce-product_details.artwork_description').readmore({
       speed: 100,

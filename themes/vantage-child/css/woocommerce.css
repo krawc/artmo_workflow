@@ -1229,7 +1229,8 @@ li.menu-item.wpmenucart-submenu-item.clearfix a {
       box-shadow: 0 0 3px -1px #959595; }
     .woocommerce div.product .profile-link {
       flex: 0 0 100%;
-      display: flex; }
+      display: flex;
+      justify-content: center; }
     .woocommerce div.product .profile-link a {
       padding: 0.5em 1em;
       background: #000;

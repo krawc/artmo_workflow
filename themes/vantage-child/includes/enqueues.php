@@ -18,7 +18,28 @@ add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_child_css', 100 );
 
 // END ENQUEUE PARENT ACTION
 function chld_thm_cfg_child_css() {
-  wp_enqueue_style( 'chld_thm_cfg_child', get_stylesheet_directory_uri() . '/css/style.css', array(  ) );
+
+  wp_enqueue_style( 'child_css_theme', get_stylesheet_directory_uri() . '/css/theme.css', array(  ) );
+  wp_enqueue_style( 'child_css_so', get_stylesheet_directory_uri() . '/css/so.css', array(  ) );
+
+  if (function_exists('is_woocommerce')) {
+    if (is_woocommerce() || is_page('cart')) {
+      wp_enqueue_style( 'child_css_woocommerce', get_stylesheet_directory_uri() . '/css/woocommerce.css', array(  ) );
+    }
+  }
+
+  if(function_exists('is_ultimatemember')) {
+    if (is_ultimatemember()) {
+      wp_enqueue_style( 'child_css_um', get_stylesheet_directory_uri() . '/css/um.css', array(  ) );
+    }
+  }
+
+  if(function_exists('is_wcfm_page')) {
+    if (is_wcfm_page() || is_page('vendor-membership')) {
+      wp_enqueue_style( 'child_css_wcfm', get_stylesheet_directory_uri() . '/css/wcfm.css', array(  ) );
+    }
+  }
+
   wp_enqueue_style( 'artmo_ionicons_master', get_stylesheet_directory_uri() . '/css/ionicons.min.css', array(  ) );
 }
 //enqueue child theme JS
