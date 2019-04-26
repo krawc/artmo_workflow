@@ -42,6 +42,56 @@ body.responsive #masthead.masthead-logo-in-menu .main-navigation .logo {
 
 #colophon, body.layout-full {
   width: 100%; }
+
+#wcfm-main-content {
+  padding: 0 !important;
+  min-height: 90vh; }
+
+#cboxOverlay {
+  opacity: 0.5 !important; }
+
+#colorbox {
+  bottom: 0 !important;
+  top: auto !important;
+  left: 0 !important;
+  position: fixed !important; }
+
+.img_tip.fa.fa-question-circle-o {
+  font-size: 16px; }
+
+.qtip-content {
+  font-size: 1.2em; }
+
+.wcfm_vacation_msg {
+  width: auto;
+  padding: 0.5em;
+  margin-bottom: 0px;
+  background: #999;
+  margin-left: 0;
+  color: #fff;
+  clear: both;
+  border: 0px;
+  font-weight: 300;
+  font-size: 11px;
+  border-left: 0;
+  border-right: 0;
+  text-align: center; }
+
+.ui-menu.ui-widget.ui-widget-content.ui-autocomplete {
+  z-index: 99999;
+  max-height: 10em;
+  max-width: 300px;
+  overflow-y: scroll; }
+
+.tag-this--remove-tag {
+  box-shadow: none; }
+
+.wcfm_product_popup_button_wrapper {
+  display: none; }
+
+img.stripe-icon, img.paypal-icon {
+  max-width: 40px !important;
+  margin-left: 6px; }
 /*UTILITY CLASSES, general fixes etc*/
 .full-row {
   float: left;
@@ -78,9 +128,7 @@ body.responsive #masthead.masthead-logo-in-menu .main-navigation .logo {
     padding: 6px; }
     .main-navigation .product-search-results .thumbnail {
       margin-bottom: 0px; }
-/* .site-navigation .full-container{
- display:flex;
- } */
+
 #site-logo-image img {
   max-height: 60px;
   width: auto; }

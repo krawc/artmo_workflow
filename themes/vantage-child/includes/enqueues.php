@@ -23,13 +23,13 @@ function chld_thm_cfg_child_css() {
   wp_enqueue_style( 'child_css_so', get_stylesheet_directory_uri() . '/css/so.css', array(  ) );
 
   if (function_exists('is_woocommerce')) {
-    if (is_woocommerce() || is_page('cart')) {
+    if (is_woocommerce() || is_page('cart') || is_page('checkout')) {
       wp_enqueue_style( 'child_css_woocommerce', get_stylesheet_directory_uri() . '/css/woocommerce.css', array(  ) );
     }
   }
 
   if(function_exists('is_ultimatemember')) {
-    if (is_ultimatemember()) {
+    if (is_ultimatemember() || is_page('artists')) {
       wp_enqueue_style( 'child_css_um', get_stylesheet_directory_uri() . '/css/um.css', array(  ) );
     }
   }

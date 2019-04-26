@@ -64,17 +64,6 @@ div.uimob340 .um-search .um-search-submit .um-button {
   margin-bottom: 10px !important;
 }
 
-
-
-/*** HIDE the keep logged in field on login/register***/
-//
-// .um-login .um-field-checkbox, .um-register .um-field-checkbox {
-//   visibility: hidden;
-//   height: 0px;
-//   overflow: hidden;
-// }
-
-
 .um-friends-m-user-show-all {
   width: 40px;
   height: 40px;
@@ -142,10 +131,6 @@ div.um-photo img {
 .um-profile .um-row-heading {
   margin-bottom: 20px!important;
 }
-
-// .um-login .um-field-checkbox, .um-register .um-field-checkbox {
-//   display: none;
-// }
 
 .um-profile-genres {
   margin: 1em 0 2em;
@@ -347,260 +332,6 @@ div.um-photo img {
   }
 }
 
-
-/* Browser fallbacks */
-
-.ie {
-  .members-slider {
-    .members-slider-container {
-      position: relative;
-    }
-    .um-member {
-      width: 15.33%;
-      flex: 0 0 15.33%;
-      margin-left: 0.5%;
-      margin-right: 0.5%;
-    }
-  }
-}
-
-/* Media queries */
-
-
-@media screen and (max-width: 500px) {
-
-  div.uimob500 .um-profile-nav-item a.uimob500-show {
-    padding: 10px!important;
-  }
-
-  div.uimob500 .um-profile-nav-art_collection a.uimob500-show {
-    display: flex;
-  }
-
-  div.uimob500 .um-profile-nav-art_collection .uimob500-show span {
-    display: inline-block!important;
-    font-size: 11px;
-  }
-
-  .um-profile-navbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    .um-followers-rc {
-      margin-bottom: 2em;
-    }
-    .share-btns-container.share-btns-post {
-      justify-content: center;
-      flex: 0 0 100%;
-      margin-bottom: 1em;
-    }
-    .um-messaging-btn {
-      flex: 0 0 100%;
-      margin: 0;
-      display: flex;
-      justify-content: left;
-      margin-bottom: 1em;
-    }
-  }
-
-
-
-}
-
-@media screen and (max-width: 600px) {
-
-  .um-profile-meta {
-    display: flex;
-    flex-direction: column;
-
-    .um-coverbtns {
-      display: inline-flex;
-      justify-content: center;
-      align-items: stretch;
-      margin-top: 2em;
-      order: 5;
-    }
-
-    .um-followers-btn {
-      margin: 0;
-      display: flex;
-    }
-
-    .um-friends-coverbtn {
-      display: flex;
-      margin-left: 10px;
-
-      a {
-        line-height: 14px!important;
-      }
-    }
-
-    .um-friends-nocoverbtn {
-      display: none!important;
-    }
-
-    .um-friends-coverbtn {
-      display: flex!important;
-      top: 0!important;
-      bottom: 0!important;
-      position: relative!important;
-      margin-left: 10px!important;
-    }
-
-  }
-  .um-profile-navbar.um-messaging-bar .um-messaging-btn {
-    margin-left: 0px!important;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .members-slider {
-    margin-bottom: 30px;
-
-  .members-slider-container {
-    .um-member-cover {
-      display: none;
-    }
-    .um-member-photo {
-      padding: 0px;
-      flex: 1;
-      margin: 10px 0 0;
-      font-size: 0px;
-      line-height: 0;
-      max-height: 90px;
-      img {
-        border: 1px solid #ccc;
-        object-fit: cover;
-        box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1);
-      }
-    }
-    .um-member {
-      float: none;
-      flex: 0 0 calc(50% - 16px);
-      margin: 0%;
-      background: #fff;
-      border: 0px;
-      margin: 0px 8px 0px 8px;
-      border: 1px solid #fff;
-      display: flex;
-      flex-direction: column;
-    }
-    .um-member-card {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .um-member-name a {
-      font-weight: 400;
-      padding: 0;
-      line-height: 0;
-    }
-    .um-member-meta {
-      padding: 0px 10px;
-      border-top: 0px;
-    }
-    .um-member-follow {
-      display: none;
-    }
-  }
-    .members-slider-nav .slider-nav-bck,
-    .members-slider-nav .slider-nav-fwd {
-      margin: 0px 8px;
-    }
-    .members-slider-header {
-      font-size: 1.5em;
-      color: #fff;
-      margin: 5px 0px 10px;
-    }
-  }
-
-  div.um-search.um-video-search {
-    padding: 15px 0 0;
-  }
-
-  div.um-search.um-video-search form {
-    .um-search-filter {
-      width: 100%;
-      padding: 0 15px 15px;
-    }
-  }
-
-  .youtube-videos-container .youtube-videos-player-container .youtube-videos-player {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    iframe {
-      height: auto;
-      min-height: 250px;
-    }
-  }
-
-  .youtube-videos-container .youtube-videos-player-container .youtube-videos-player-overlay {
-    z-index: 0;
-    width: 100%;
-    height: 0;
-    i {
-      right: 8px;
-    }
-  }
-
-  .youtube-videos {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    div.video-single,
-    div.video-single-featured {
-      flex: 0 0 calc(100% - 30px);
-      margin: 25px auto 0;
-    }
-  }
-}
-
-@media screen and (min-width: 767px) and (max-width: 1024px) {
-  .members-slider .members-slider-container .um-member {
-    flex: 0 0 24%;
-  }
-}
-
-@media screen and (min-width: 767px) {
-
-  .um-profile .um-profile-meta .um-coverbtns {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    top: -50px;
-    max-width: 500px;
-    display: flex;
-    justify-content: flex-end;
-    .um-followers-btn {
-      margin-right: 10px;
-    }
-    .um-friends-coverbtn {
-      top: 0;
-      right: 0;
-      position: relative;
-    }
-  }
-}
-
-
-@keyframes preloader-rotate {
-  0% {
-    transform: rotateZ(0deg);
-  }
-  50% {
-    transform: rotateZ(180deg);
-  }
-  100% {
-    transform: rotateZ(360deg);
-  }
-}
-
-
 .um-profile-nav {
 	background: #000;
 }
@@ -641,6 +372,8 @@ was white on white by default*/
 .um .um-followers-btn a.um-button {
     background: #000 !important;
     color: #fff !important;
+    margin: 0!important;
+    width: 100%!important;
     &:hover {
       background: #666 !important;
     }
@@ -662,10 +395,8 @@ was white on white by default*/
 	  background: #000!important;
 }
 
-
-
 .um-28781.um .um-profile-headericon a.um-profile-edit-a:hover {
-	color: #666;
+    color: #666;
 }
 
 .um .um-tip:hover,
@@ -930,5 +661,262 @@ div.uimob800 .um-account-side li a.current:hover
         color: #fff;
       }
     }
+  }
+}
+
+
+
+
+
+/* Browser fallbacks */
+
+.ie {
+  .members-slider {
+    .members-slider-container {
+      position: relative;
+    }
+    .um-member {
+      width: 15.33%;
+      flex: 0 0 15.33%;
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+    }
+  }
+}
+
+/* Media queries */
+
+
+@media screen and (max-width: 500px) {
+
+  div.uimob500 .um-profile-nav-item a.uimob500-show {
+    padding: 10px!important;
+  }
+
+  div.uimob500 .um-profile-nav-art_collection a.uimob500-show {
+    display: flex;
+  }
+
+  div.uimob500 .um-profile-nav-art_collection .uimob500-show span {
+    display: inline-block!important;
+    font-size: 11px;
+  }
+
+  .um-profile-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .um-followers-rc {
+      margin-bottom: 2em;
+    }
+    .share-btns-container.share-btns-post {
+      justify-content: center;
+      flex: 0 0 100%;
+      margin-bottom: 1em;
+    }
+    .um-messaging-btn {
+      flex: 0 0 100%;
+      margin: 0;
+      display: flex;
+      justify-content: left;
+      margin-bottom: 1em;
+    }
+  }
+
+
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .um-profile-meta {
+    display: flex;
+    flex-direction: column;
+
+    .um-coverbtns {
+      display: inline-flex;
+      justify-content: space-evenly;
+      align-items: stretch;
+      margin-top: 2em;
+      order: 5;
+    }
+
+    .um-followers-btn {
+      margin: 0;
+      display: flex;
+      width: 125px;
+    }
+
+    .um-friends-coverbtn {
+      display: flex;
+      margin-left: 10px;
+
+      a {
+        line-height: 14px!important;
+      }
+    }
+
+    .um-friends-nocoverbtn {
+      display: none!important;
+    }
+
+    .um-friends-coverbtn {
+      display: flex!important;
+      top: 0!important;
+      bottom: 0!important;
+      position: relative!important;
+      margin-left: 10px!important;
+    }
+
+  }
+  .um-profile-navbar.um-messaging-bar .um-messaging-btn {
+    margin-left: 0px!important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .members-slider {
+    margin-bottom: 30px;
+
+  .members-slider-container {
+    .um-member-cover {
+      display: none;
+    }
+    .um-member-photo {
+      padding: 0px;
+      flex: 1;
+      margin: 10px 0 0;
+      font-size: 0px;
+      line-height: 0;
+      max-height: 90px;
+      img {
+        border: 1px solid #ccc;
+        object-fit: cover;
+        box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1);
+      }
+    }
+    .um-member {
+      float: none;
+      flex: 0 0 calc(50% - 16px);
+      margin: 0%;
+      background: #fff;
+      border: 0px;
+      margin: 0px 8px 0px 8px;
+      border: 1px solid #fff;
+      display: flex;
+      flex-direction: column;
+    }
+    .um-member-card {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .um-member-name a {
+      font-weight: 400;
+      padding: 0;
+      line-height: 0;
+    }
+    .um-member-meta {
+      padding: 0px 10px;
+      border-top: 0px;
+    }
+    .um-member-follow {
+      display: none;
+    }
+  }
+    .members-slider-nav .slider-nav-bck,
+    .members-slider-nav .slider-nav-fwd {
+      margin: 0px 8px;
+    }
+    .members-slider-header {
+      font-size: 1.5em;
+      color: #fff;
+      margin: 5px 0px 10px;
+    }
+  }
+
+  div.um-search.um-video-search {
+    padding: 15px 0 0;
+  }
+
+  div.um-search.um-video-search form {
+    .um-search-filter {
+      width: 100%;
+      padding: 0 15px 15px;
+    }
+  }
+
+  .youtube-videos-container .youtube-videos-player-container .youtube-videos-player {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    iframe {
+      height: auto;
+      min-height: 250px;
+    }
+  }
+
+  .youtube-videos-container .youtube-videos-player-container .youtube-videos-player-overlay {
+    z-index: 0;
+    width: 100%;
+    height: 0;
+    i {
+      right: 8px;
+    }
+  }
+
+  .youtube-videos {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    div.video-single,
+    div.video-single-featured {
+      flex: 0 0 calc(100% - 30px);
+      margin: 25px auto 0;
+    }
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+  .members-slider .members-slider-container .um-member {
+    flex: 0 0 24%;
+  }
+}
+
+@media screen and (min-width: 767px) {
+
+  .um-profile .um-profile-meta .um-coverbtns {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    top: -50px;
+    max-width: 500px;
+    display: flex;
+    justify-content: flex-end;
+    .um-followers-btn {
+      margin-right: 10px;
+    }
+    .um-friends-coverbtn {
+      top: 0;
+      right: 0;
+      position: relative;
+    }
+  }
+}
+
+
+@keyframes preloader-rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(180deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
   }
 }

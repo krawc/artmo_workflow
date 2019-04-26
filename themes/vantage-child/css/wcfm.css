@@ -1,53 +1,3 @@
-#wcfm-main-content {
-  padding: 0 !important;
-  min-height: 90vh; }
-
-#cboxOverlay {
-  opacity: 0.5 !important; }
-
-#colorbox {
-  bottom: 0 !important;
-  top: auto !important;
-  left: 0 !important;
-  position: fixed !important; }
-
-.img_tip.fa.fa-question-circle-o {
-  font-size: 16px; }
-
-.qtip-content {
-  font-size: 1.2em; }
-
-.wcfm_vacation_msg {
-  width: auto;
-  padding: 0.5em;
-  margin-bottom: 0px;
-  background: #999;
-  margin-left: 0;
-  color: #fff;
-  clear: both;
-  border: 0px;
-  font-weight: 300;
-  font-size: 11px;
-  border-left: 0;
-  border-right: 0;
-  text-align: center; }
-
-.ui-menu.ui-widget.ui-widget-content.ui-autocomplete {
-  z-index: 99999;
-  max-height: 10em;
-  max-width: 300px;
-  overflow-y: scroll; }
-
-.tag-this--remove-tag {
-  box-shadow: none; }
-
-.wcfm_product_popup_button_wrapper {
-  display: none; }
-
-img.stripe-icon, img.paypal-icon {
-  max-width: 40px !important;
-  margin-left: 6px; }
-
 .page-wcfm {
   /*product manager*/
   /*
@@ -1277,7 +1227,7 @@ img.stripe-icon, img.paypal-icon {
   .page-wcfm .wcfm_header_panel i.fa {
     margin-top: 0.5em !important;
     font-size: 18px; }
-
+/*VENDOR MEMBERSHIP PAGE - Signup forms, subscription selection, etc.*/
 #wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_title {
   background: #000;
   text-transform: uppercase;
@@ -1325,7 +1275,7 @@ img.stripe-icon, img.paypal-icon {
     .page-vendor-membership.vmstep-registration div#wcfm_membership_container #wcfm_membership_registration_form, .page-vendor-membership.vmstep-payment div#wcfm_membership_container #wcfm_membership_registration_form, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container #wcfm_membership_registration_form {
       flex: 0 0 calc(35% - 40px);
       margin: 2em 40px auto auto;
-      height: 26em;
+      height: 500px;
       display: flex;
       flex-direction: column;
       justify-content: center; }
@@ -1409,7 +1359,6 @@ img.stripe-icon, img.paypal-icon {
     display: none; }
   .page-vendor-membership #wcfm-main-contentainer .um-message-btn.um-button {
     margin: 0px !important;
-    border: 8px solid #fff !important;
     border-radius: 0px !important;
     box-shadow: none;
     background: #000;
@@ -1660,7 +1609,7 @@ img.stripe-icon, img.paypal-icon {
       background: #000;
       border-radius: 0px;
       border: 0px; }
-
+/*end of page-vendor-membership general settings*/
 .wcfm_upgrade.overlay {
   position: absolute;
   width: 100vw;
@@ -1705,7 +1654,8 @@ img.stripe-icon, img.paypal-icon {
 
 #wcfm_membership_container .wcfm_form_simple_submit_wrapper button.wcfm_submit_button, #wcfm_membership_container .wcfm_form_simple_submit_wrapper a.wcfm_submit_button {
   border-radius: 0px;
-  border: 8px solid #fff;
+  border: 0 !important;
+  padding: 1rem 0 !important;
   font-size: 1.6rem;
   transition: background 0.3s ease-in-out;
   background: #000;
@@ -1713,7 +1663,7 @@ img.stripe-icon, img.paypal-icon {
   color: #fff;
   white-space: pre-wrap;
   box-shadow: none;
-  flex: 0 0 50%;
+  flex: 0 0 calc(50% - 0.5rem);
   margin: 0px;
   justify-content: center;
   align-items: center;
@@ -1725,45 +1675,165 @@ img.stripe-icon, img.paypal-icon {
 #wcfm_membership_container .wcfm_form_simple_submit_wrapper a {
   flex: 0 0 50%; }
 
-@media only screen and (max-width: 768px) {
-  .page-vendor-membership.vmstep-registration .wcfm-membership-wrapper, .page-vendor-membership.vmstep-payment .wcfm-membership-wrapper, .page-vendor-membership.vmstep-thankyou .wcfm-membership-wrapper {
-    margin: 0 !important; }
+.wcfm_form_simple_submit_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem; }
 
-  #wcfm-main-contentainer .wcfm_membership_boxes .wcfm_membership_box_foot {
-    display: block;
-    margin-left: -100%; }
+.wcfm_membership_boxes {
+  margin-top: 30px !important; }
+  .wcfm_membership_boxes.current-membership-plus .basic .wcfm_membership_subscribe_button_wrapper, .wcfm_membership_boxes.current-membership-pro .basic .wcfm_membership_subscribe_button_wrapper, .wcfm_membership_boxes.current-membership-pro .plus .wcfm_membership_subscribe_button_wrapper, .wcfm_membership_boxes.current-membership-lifetime .basic .wcfm_membership_subscribe_button_wrapper, .wcfm_membership_boxes.current-membership-lifetime .plus .wcfm_membership_subscribe_button_wrapper, .wcfm_membership_boxes.current-membership-lifetime .pro .wcfm_membership_subscribe_button_wrapper {
+    margin-top: 43px; }
+    .wcfm_membership_boxes.current-membership-plus .basic .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button, .wcfm_membership_boxes.current-membership-pro .basic .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button, .wcfm_membership_boxes.current-membership-pro .plus .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button, .wcfm_membership_boxes.current-membership-lifetime .basic .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button, .wcfm_membership_boxes.current-membership-lifetime .plus .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button, .wcfm_membership_boxes.current-membership-lifetime .pro .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button {
+      display: none; }
 
-  #wcfm-main-contentainer .wcfm_membership_boxes .wcfm_membership_box_head {
-    margin-left: -100%; }
+.page-wcfm.settings .wcfm-tabWrap {
+  box-shadow: none !important; }
+  .page-wcfm.settings #wcfm-main-contentainer .select2-container {
+    margin-left: -4px; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay {
+      display: flex; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_membership_review_plan {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1em;
+      background: #e5e9ec;
+      flex: 0 0 60%; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_title {
+      flex: 0 0 100%;
+      font-size: 2em;
+      margin: 1em 0 0.5em;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_description {
+      flex: 0 0 100%;
+      text-align: center;
+      margin: 1em 0;
+      font-weight: 700; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features {
+      display: flex;
+      flex: 0 0 100%;
+      flex-wrap: wrap;
+      font-size: 1em; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature, .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature_val {
+      flex: 0 0 50%;
+      border-bottom: 0;
+      align-content: center;
+      align-items: center;
+      display: flex;
+      background: #fff;
+      margin-top: 0.5em;
+      height: 4em;
+      padding: 0.5em; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature {
+      border-right: 1px solid #e5e9ec;
+      justify-content: left; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature_val {
+      justify-content: center; }
+      .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature_val i {
+        font-size: 30px; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_membership_pay {
+      box-shadow: none;
+      font-size: 1.2em;
+      padding: 5em 1em 1em 1em;
+      background: #e5e9ec; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_pay_welcome {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      text-transform: uppercase; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm-upgrade-button {
+      background: #000;
+      padding: 0.5em 1em;
+      color: #fff;
+      margin-top: 0.5em;
+      text-transform: uppercase;
+      display: inline-block; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay #wcfm_membership_cancel_open_modal {
+      display: inline-block;
+      font-size: 13px;
+      cursor: pointer;
+      margin-top: 1em; }
+    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay #wcfm_membership_cancel_open_modal:hover {
+      color: #666; }
 
-  .wcfm-membership-wrapper .wc-progress-steps li, .woocommerce-progress-form-wrapper .wc-progress-steps li {
-    font-size: 12px;
-    word-wrap: break-word;
-    hyphens: auto; }
-
-  .page-vendor-membership.vmstep-registration div#wcfm_membership_container, .page-vendor-membership.vmstep-payment div#wcfm_membership_container, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container {
+.wcfm-cancel-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out; }
+  .wcfm-cancel-modal.visible {
+    opacity: 1;
+    pointer-events: all; }
+  .wcfm-cancel-modal .wcfm-cancel-modal-notice {
+    transform: translateY(0px);
+    background: #fff;
+    max-width: 500px;
+    display: flex;
     flex-wrap: wrap;
-    padding: 0px; }
-    .page-vendor-membership.vmstep-registration div#wcfm_membership_container .wcfm_membership_terms_conditions, .page-vendor-membership.vmstep-payment div#wcfm_membership_container .wcfm_membership_terms_conditions, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container .wcfm_membership_terms_conditions, .page-vendor-membership.vmstep-registration div#wcfm_membership_container .wcfm_membership_review_plan, .page-vendor-membership.vmstep-payment div#wcfm_membership_container .wcfm_membership_review_plan, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container .wcfm_membership_review_plan, .page-vendor-membership.vmstep-registration div#wcfm_membership_container .wcfm_membership_pay, .page-vendor-membership.vmstep-payment div#wcfm_membership_container .wcfm_membership_pay, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container .wcfm_membership_pay, .page-vendor-membership.vmstep-registration div#wcfm_membership_container .wcfm_membership_thankyou_content_wrapper, .page-vendor-membership.vmstep-payment div#wcfm_membership_container .wcfm_membership_thankyou_content_wrapper, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container .wcfm_membership_thankyou_content_wrapper, .page-vendor-membership.vmstep-registration div#wcfm_membership_container .wcfm_membership_thankyou_next, .page-vendor-membership.vmstep-payment div#wcfm_membership_container .wcfm_membership_thankyou_next, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container .wcfm_membership_thankyou_next {
+    justify-content: center;
+    padding: 30px;
+    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3); }
+    .wcfm-cancel-modal .wcfm-cancel-modal-notice i, .wcfm-cancel-modal .wcfm-cancel-modal-notice h2 {
       flex: 0 0 100%;
-      min-height: 8em; }
-    .page-vendor-membership.vmstep-registration div#wcfm_membership_container #wcfm_membership_registration_form, .page-vendor-membership.vmstep-payment div#wcfm_membership_container #wcfm_membership_registration_form, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container #wcfm_membership_registration_form {
-      flex: 0 0 100%;
-      margin: auto;
-      order: -1; } }
+      text-align: center; }
+    .wcfm-cancel-modal .wcfm-cancel-modal-notice i {
+      font-size: 32px; }
+    .wcfm-cancel-modal .wcfm-cancel-modal-notice p {
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 1em; }
+    .wcfm-cancel-modal .wcfm-cancel-modal-notice a {
+      padding: 10px !important;
+      width: 200px;
+      text-align: center;
+      text-transform: uppercase; }
+    .wcfm-cancel-modal .wcfm-cancel-modal-notice a:hover {
+      color: #666; }
+  .wcfm-cancel-modal.visible .wcfm-cancel-modal-notice {
+    animation: popupSlideDown 0.5s forwards; }
 
-@media only screen and (min-width: 769px) {
-  body.page-vendor-membership .wcfm-membership-wrapper {
-    padding: 20px; }
-
-  #wcfm-main-contentainer .wcfm_membership_feature_box .wcfm_membership_feature_box_head {
-    visibility: visible !important;
-    background-color: #fff !important;
-    border: 1px solid #ccc;
-    justify-content: center !important;
-    align-items: center;
-    border-bottom: 0px;
-    border-radius: 0px; } }
+.vendor-membership #terms {
+  font-size: 1.4em; }
+  .vendor-membership input.wcfm-checkbox, .vendor-membership input.wcfm-radio {
+    border-radius: 0px;
+    box-shadow: none;
+    margin: 10px 10px 10px 0px;
+    visibility: hidden; }
+    .vendor-membership input.wcfm-checkbox#dimensions, .vendor-membership input.wcfm-radio#dimensions {
+      margin: 0 10px 0 0; }
+    .vendor-membership input.wcfm-checkbox:before, .vendor-membership input.wcfm-radio:before {
+      visibility: visible;
+      float: left;
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 0px;
+      content: "";
+      text-align: center;
+      margin: 0 5px 0 0; }
+    .vendor-membership input.wcfm-checkbox:checked:before, .vendor-membership input.wcfm-radio:checked:before {
+      float: left;
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      font-size: 15px;
+      font: normal normal normal 13px/1.3 Ionicons;
+      -moz-osx-font-smoothing: grayscale;
+      content: "\f383";
+      color: #444; }
+  .vendor-membership #wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_description {
+    font-size: 18px; }
 /*x-browser settings*/
 body.gecko input.wcfm-checkbox, body.unknown input.wcfm-checkbox, body.gecko input[type="checkbox"], body.unknown input[type="checkbox"], body.gecko input.wcfm-radio, body.unknown input.wcfm-radio, body.gecko input[type="radio"], body.unknown input[type="radio"] {
   visibility: visible !important; }
@@ -1815,119 +1885,54 @@ body.gecko input.wcfm-checkbox, body.unknown input.wcfm-checkbox, body.gecko inp
     width: 100%; }
   .page-wcfm.ie #wcfm-main-contentainer table.dataTable#wcfm-products tbody tr:hover td:last-of-type {
     display: flex; }
+  .page-wcfm.ie.settings.page-wcfm #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature, .page-wcfm.ie.settings.page-wcfm #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature_val {
+    width: 50%;
+    flex: 0 0 47%;
+    text-align: center;
+    display: inline-block;
+    margin: auto; }
+  .page-wcfm.ie #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_membership_review_plan {
+    flex: 0 0 55%; }
+  .page-wcfm.ie #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_membership_pay {
+    flex: 0 0 30%; }
+  .page-wcfm.ie #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_pay_non_free {
+    height: 3em; }
+  .page-wcfm.ie.page-vendor-membership #wcfm-main-contentainer .um-button.um-message-btn {
+    width: 100%;
+    box-sizing: border-box; }
+  .page-wcfm.ie.page-vendor-membership .wcfm_membership_price span {
+    display: inline-block !important; }
+  .page-wcfm.ie.page-vendor-membership select.subscription_pricing {
+    padding: 3px 3px 3px 6px;
+    align-self: center; }
 
-.wcfm_membership_boxes {
-  margin-top: 30px !important; }
-  .wcfm_membership_boxes.current-membership-plus .basic .wcfm_membership_subscribe_button_wrapper, .wcfm_membership_boxes.current-membership-pro .basic .wcfm_membership_subscribe_button_wrapper, .wcfm_membership_boxes.current-membership-pro .plus .wcfm_membership_subscribe_button_wrapper, .wcfm_membership_boxes.current-membership-lifetime .basic .wcfm_membership_subscribe_button_wrapper, .wcfm_membership_boxes.current-membership-lifetime .plus .wcfm_membership_subscribe_button_wrapper, .wcfm_membership_boxes.current-membership-lifetime .pro .wcfm_membership_subscribe_button_wrapper {
-    margin-top: 43px; }
-  .wcfm_membership_boxes.current-membership-plus .basic .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button, .wcfm_membership_boxes.current-membership-pro .basic .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button, .wcfm_membership_boxes.current-membership-pro .plus .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button, .wcfm_membership_boxes.current-membership-lifetime .basic .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button, .wcfm_membership_boxes.current-membership-lifetime .plus .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button, .wcfm_membership_boxes.current-membership-lifetime .pro .wcfm_membership_subscribe_button_wrapper .wcfm_membership_subscribe_button {
-    display: none; }
+@media only screen and (max-width: 768px) {
+  .page-vendor-membership.vmstep-registration .wcfm-membership-wrapper, .page-vendor-membership.vmstep-payment .wcfm-membership-wrapper, .page-vendor-membership.vmstep-thankyou .wcfm-membership-wrapper {
+    margin: 0 !important; }
 
-.page-wcfm.settings .wcfm-tabWrap {
-  box-shadow: none !important; }
-  .page-wcfm.settings #wcfm-main-contentainer .select2-container {
-    margin-left: -4px; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay {
-    display: flex; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_membership_review_plan {
-    display: flex;
+  #wcfm-main-contentainer .wcfm_membership_boxes .wcfm_membership_box_foot {
+    display: block;
+    margin-left: -100%; }
+
+  #wcfm-main-contentainer .wcfm_membership_boxes .wcfm_membership_box_head {
+    margin-left: -100%; }
+
+  .wcfm-membership-wrapper .wc-progress-steps li, .woocommerce-progress-form-wrapper .wc-progress-steps li {
+    font-size: 12px;
+    word-wrap: break-word;
+    hyphens: auto; }
+
+  .page-vendor-membership.vmstep-registration div#wcfm_membership_container, .page-vendor-membership.vmstep-payment div#wcfm_membership_container, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container {
     flex-wrap: wrap;
-    padding: 1em;
-    background: #e5e9ec;
-    flex: 0 0 60%; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_title {
-    flex: 0 0 100%;
-    font-size: 2em;
-    margin: 1em 0 0.5em;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_description {
-    flex: 0 0 100%;
-    text-align: center;
-    margin: 1em 0;
-    font-weight: 700; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features {
-    display: flex;
-    flex: 0 0 100%;
-    flex-wrap: wrap;
-    font-size: 1em; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature, .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature_val {
-    flex: 0 0 50%;
-    border-bottom: 0;
-    align-content: center;
-    align-items: center;
-    display: flex;
-    background: #fff;
-    margin-top: 0.5em;
-    height: 4em;
-    padding: 0.5em; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature {
-    border-right: 1px solid #e5e9ec;
-    justify-content: left; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature_val {
-    justify-content: center; }
-    .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature_val i {
-      font-size: 30px; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_membership_pay {
-    box-shadow: none;
-    font-size: 1.2em;
-    padding: 5em 1em 1em 1em;
-    background: #e5e9ec; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_pay_welcome {
-    font-size: 1.5em;
-    margin-bottom: 1em;
-    text-transform: uppercase; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm-upgrade-button {
-    background: #000;
-    padding: 0.5em 1em;
-    color: #fff;
-    margin-top: 0.5em;
-    text-transform: uppercase;
-    display: inline-block; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay #wcfm_membership_cancel_open_modal {
-    display: inline-block;
-    font-size: 13px;
-    cursor: pointer;
-    margin-top: 1em; }
-  .page-wcfm.settings #wcfm-main-contentainer .wcfm_membership_review_pay #wcfm_membership_cancel_open_modal:hover {
-    color: #666; }
+    padding: 0px; }
+    .page-vendor-membership.vmstep-registration div#wcfm_membership_container .wcfm_membership_terms_conditions, .page-vendor-membership.vmstep-payment div#wcfm_membership_container .wcfm_membership_terms_conditions, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container .wcfm_membership_terms_conditions, .page-vendor-membership.vmstep-registration div#wcfm_membership_container .wcfm_membership_review_plan, .page-vendor-membership.vmstep-payment div#wcfm_membership_container .wcfm_membership_review_plan, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container .wcfm_membership_review_plan, .page-vendor-membership.vmstep-registration div#wcfm_membership_container .wcfm_membership_pay, .page-vendor-membership.vmstep-payment div#wcfm_membership_container .wcfm_membership_pay, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container .wcfm_membership_pay, .page-vendor-membership.vmstep-registration div#wcfm_membership_container .wcfm_membership_thankyou_content_wrapper, .page-vendor-membership.vmstep-payment div#wcfm_membership_container .wcfm_membership_thankyou_content_wrapper, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container .wcfm_membership_thankyou_content_wrapper, .page-vendor-membership.vmstep-registration div#wcfm_membership_container .wcfm_membership_thankyou_next, .page-vendor-membership.vmstep-payment div#wcfm_membership_container .wcfm_membership_thankyou_next, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container .wcfm_membership_thankyou_next {
+      flex: 0 0 100%;
+      min-height: 8em; }
+    .page-vendor-membership.vmstep-registration div#wcfm_membership_container #wcfm_membership_registration_form, .page-vendor-membership.vmstep-payment div#wcfm_membership_container #wcfm_membership_registration_form, .page-vendor-membership.vmstep-thankyou div#wcfm_membership_container #wcfm_membership_registration_form {
+      flex: 0 0 100%;
+      margin: auto;
+      order: -1; }
 
-.vendor-membership #terms {
-  font-size: 1.4em; }
-  .vendor-membership input.wcfm-checkbox, .vendor-membership input.wcfm-radio {
-    border-radius: 0px;
-    box-shadow: none;
-    margin: 10px 10px 10px 0px;
-    visibility: hidden; }
-  .vendor-membership input.wcfm-checkbox#dimensions, .vendor-membership input.wcfm-radio#dimensions {
-    margin: 0 10px 0 0; }
-  .vendor-membership input.wcfm-checkbox:before, .vendor-membership input.wcfm-radio:before {
-    visibility: visible;
-    float: left;
-    display: inline-block;
-    vertical-align: middle;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #ccc;
-    border-radius: 0px;
-    content: "";
-    text-align: center;
-    margin: 0 5px 0 0; }
-  .vendor-membership input.wcfm-checkbox:checked:before, .vendor-membership input.wcfm-radio:checked:before {
-    float: left;
-    display: inline-block;
-    vertical-align: middle;
-    width: 20px;
-    font-size: 15px;
-    font: normal normal normal 13px/1.3 Ionicons;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f383";
-    color: #444; }
-  .vendor-membership #wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_description {
-    font-size: 18px; }
-
-@media screen and (max-width: 768px) {
   .page-vendor-membership #wcfm-main-contentainer .wcfm_membership_pay {
     order: -1;
     margin-bottom: 1em; }
@@ -1939,26 +1944,18 @@ body.gecko input.wcfm-checkbox, body.unknown input.wcfm-checkbox, body.gecko inp
     padding: 1em;
     margin: 0em 0em 1em; } }
 
-.ie.settings.page-wcfm #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature, .ie.settings.page-wcfm #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_plan_features .wcfm_review_plan_feature_val {
-  width: 50%;
-  flex: 0 0 47%;
-  text-align: center;
-  display: inline-block;
-  margin: auto; }
-  .ie #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_membership_review_plan {
-    flex: 0 0 55%; }
-  .ie #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_membership_pay {
-    flex: 0 0 30%; }
-  .ie #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_pay_non_free {
-    height: 3em; }
-  .ie.page-vendor-membership #wcfm-main-contentainer .um-button.um-message-btn {
-    width: 100%;
-    box-sizing: border-box; }
-  .ie.page-vendor-membership .wcfm_membership_price span {
-    display: inline-block !important; }
-  .ie.page-vendor-membership select.subscription_pricing {
-    padding: 3px 3px 3px 6px;
-    align-self: center; }
+@media only screen and (min-width: 769px) {
+  body.page-vendor-membership .wcfm-membership-wrapper {
+    padding: 20px; }
+
+  #wcfm-main-contentainer .wcfm_membership_feature_box .wcfm_membership_feature_box_head {
+    visibility: visible !important;
+    background-color: #fff !important;
+    border: 1px solid #ccc;
+    justify-content: center !important;
+    align-items: center;
+    border-bottom: 0px;
+    border-radius: 0px; } }
 
 @media screen and (min-width: 769px) and (max-width: 1280px) {
   .page-template-default.page-vendor-membership #wcfm-main-contentainer {
@@ -2039,50 +2036,6 @@ body.gecko input.wcfm-checkbox, body.unknown input.wcfm-checkbox, body.gecko inp
 
   .page-wcfm #wcfm-main-contentainer #wcfm_settings_form {
     padding: 0; } }
-
-.wcfm-cancel-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease-in-out; }
-  .wcfm-cancel-modal.visible {
-    opacity: 1;
-    pointer-events: all; }
-  .wcfm-cancel-modal .wcfm-cancel-modal-notice {
-    transform: translateY(0px);
-    background: #fff;
-    max-width: 500px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 30px;
-    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3); }
-  .wcfm-cancel-modal .wcfm-cancel-modal-notice i, .wcfm-cancel-modal .wcfm-cancel-modal-notice h2 {
-    flex: 0 0 100%;
-    text-align: center; }
-  .wcfm-cancel-modal .wcfm-cancel-modal-notice i {
-    font-size: 32px; }
-  .wcfm-cancel-modal .wcfm-cancel-modal-notice p {
-    font-weight: 300;
-    text-align: center;
-    margin-bottom: 1em; }
-  .wcfm-cancel-modal .wcfm-cancel-modal-notice a {
-    padding: 10px !important;
-    width: 200px;
-    text-align: center;
-    text-transform: uppercase; }
-  .wcfm-cancel-modal .wcfm-cancel-modal-notice a:hover {
-    color: #666; }
-  .wcfm-cancel-modal.visible .wcfm-cancel-modal-notice {
-    animation: popupSlideDown 0.5s forwards; }
 
 @keyframes popupSlideDown {
   from {
