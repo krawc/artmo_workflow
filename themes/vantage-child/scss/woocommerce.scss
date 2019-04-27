@@ -446,11 +446,15 @@ li {
     white-space: nowrap;
   }
 
-
+  #wc-stripe-payment-request-button-separator,
+  #wc-stripe-payment-request-wrapper {
+    display: none!important;
+  }
 
   .single_add_to_cart_button.button.alt, #wl-wrapper .button {
     background-color: #7f7f7f;
     border-radius: 0px;
+
   }
 
   div.product {

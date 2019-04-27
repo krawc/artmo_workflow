@@ -315,6 +315,8 @@ li.menu-item.wpmenucart-submenu-item.clearfix a {
     line-height: 1.45em; }
   .woocommerce .woocommerce-loop-product_details .product_size {
     white-space: nowrap; }
+  .woocommerce #wc-stripe-payment-request-button-separator, .woocommerce #wc-stripe-payment-request-wrapper {
+    display: none !important; }
   .woocommerce .single_add_to_cart_button.button.alt, .woocommerce #wl-wrapper .button {
     background-color: #7f7f7f;
     border-radius: 0px; }

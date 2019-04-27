@@ -18,7 +18,7 @@ require_once( __DIR__ . '/includes/custom-post-types.php');
 require_once( __DIR__ . '/includes/customizer.php');
 require_once( __DIR__ . '/includes/admin.php');
 require_once( __DIR__ . '/includes/theme-settings.php');
-require_once( __DIR__ . '/includes/enqueues.php');
+require_once( __DIR__ . '/includes/ajax.php');
 
 /* PLUGIN-specific modifications */
 
@@ -30,6 +30,7 @@ require_once( __DIR__ . '/includes/plugins/woo.php');
 /* SPECIFIC FEATURES - KEEP THE ALPHABETICAL ORDER */
 
 require_once( __DIR__ . '/includes/features/compression.php');
+require_once( __DIR__ . '/includes/features/editor.php');
 require_once( __DIR__ . '/includes/features/homepage.php');
 require_once( __DIR__ . '/includes/features/inputs.php');
 require_once( __DIR__ . '/includes/features/profile-embed.php');

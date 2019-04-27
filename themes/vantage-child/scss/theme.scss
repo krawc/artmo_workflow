@@ -932,6 +932,49 @@ body > .um-notification-b {
   }
 }
 
+#create-post-container {
+  margin: 13px;
+  background: #fff;
+  form[name=artmo_create_post] {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+    .create-post-title {
+      flex: 0 0 100%;
+      font-size: 28px;
+      margin-bottom: 1rem;
+      border: 0;
+    }
+    .create-post-content {
+      flex: 0 0 100%;
+      border: 0;
+      -webkit-appearance: none;
+    }
+  }
+  .create-post-buttons {
+    margin: 2rem 0 1rem;
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    button[type=submit] {
+      padding: 0;
+      flex: 0 0 150px;
+      font-size: 14px;
+      line-height: 32px;
+      border: 0;
+      background: #666;
+      color: #fff;
+      border-radius: 0;
+      text-align: center;
+    }
+
+    button[type=submit]#create_post_publish {
+      background: #000;
+    }
+  }
+}
+
 
 @media (max-width: 340px) {
   body.responsive .mobmenu.mob-menu-header-holder .mobmenur-container .right-menu-btn.right-menu-btn-sell {
@@ -1076,6 +1119,37 @@ body > .um-notification-b {
     width: 100%!important;
     left: 0!important;
     border: 2px solid #fff!important;
+  }
+}
+
+.mobmenu .right-menu-btn-sell {
+  position: relative;
+  .um-notices-shortcode {
+    background: #222;
+    border: 0;
+    position: absolute;
+    width: 200px;
+    top: 60px;
+    left: calc(50% - 100px);
+
+    .um-notices-wrap.yes-shortcode {
+      margin-bottom: 0;
+      box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.5);
+      &:after {
+        bottom: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(34, 34, 34, 0);
+        border-bottom-color: #222;
+        border-width: 10px;
+        margin-left: -10px;
+      }
+    }
   }
 }
 

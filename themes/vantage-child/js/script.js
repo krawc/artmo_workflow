@@ -231,10 +231,10 @@ jQuery(document).ready(function( $ ){
     }
   });
 
-  if($('fieldset#edition input[name="edition"]').val() == 1) {
-    $(this).parent().parent().addClass('edition');
+  if($('fieldset#edition input[name="edition"]:checked').val() == 1) {
+    $('fieldset#edition input[name="edition"]:checked').parent().parent().addClass('edition');
   } else {
-    $(this).parent().parent().removeClass('edition');
+    $('fieldset#edition input[name="edition"]:checked').parent().parent().removeClass('edition');
   }
 
   $('fieldset#edition input[name="edition"]').change(function() {
@@ -658,6 +658,50 @@ jQuery(document).ready(function( $ ){
         }
       });
     }
+
+    $( '#create_post_publish' ).on( 'click', function() {
+      //var form_data = $( 'form[name="artmo_create_post"]' ).serializeArray();
+      var data = {
+        action: 'artmo_create_post',
+        form_data: $( 'form[name="artmo_create_post"]' ).serializeArray(),
+        status: 'publish'
+      }
+      console.log(data);
+      $.ajax({
+          url : trans_object.ajax_url,
+          type : 'post',
+          data : data,
+          success : function( response ) {
+              console.log( response );
+          },
+          fail : function( err ) {
+              console.log( "There was an error: " + err );
+          }
+      });
+      return false;
+    });
+
+    $( '#create_post_draft' ).on( 'click', function() {
+      //var form_data = $( 'form[name="artmo_create_post"]' ).serializeArray();
+      var data = {
+        action: 'artmo_create_post',
+        form_data: $( 'form[name="artmo_create_post"]' ).serializeArray(),
+        status: 'draft'
+      }
+      console.log(data);
+      $.ajax({
+          url : trans_object.ajax_url,
+          type : 'post',
+          data : data,
+          success : function( response ) {
+              console.log( response );
+          },
+          fail : function( err ) {
+              console.log( "There was an error: " + err );
+          }
+      });
+      return false;
+    });
 
     function video_click_interactions() {
 
