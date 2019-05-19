@@ -1702,7 +1702,8 @@ class WCFMvm {
 								$next_renewal_time = strtotime( '+' . $billing_period . ' ' . $period_options[$billing_period_type], $current_time );
 								update_user_meta( $member->ID, 'wcfm_membership_next_schedule', $next_renewal_time );
 							} else {
-								$WCFMvm->wcfmvm_vendor_membership_expire( $member->ID, $wcfm_membership );
+								//Don't ever expire membership unless specifically requested by the user. (Hotfix)
+								//$WCFMvm->wcfmvm_vendor_membership_expire( $member->ID, $wcfm_membership );
 							}
 						}
 
