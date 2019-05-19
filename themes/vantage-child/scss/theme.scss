@@ -938,17 +938,51 @@ body > .um-notification-b {
   form[name=artmo_create_post] {
     display: flex;
     flex-wrap: wrap;
-    padding: 1em;
+    padding: 4rem 2rem;
     .create-post-title {
       flex: 0 0 100%;
       font-size: 28px;
       margin-bottom: 1rem;
-      border: 0;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
     }
-    .create-post-content {
+    #wp-artmocreateposteditor-wrap {
       flex: 0 0 100%;
       border: 0;
-      -webkit-appearance: none;
+      position: relative;
+      margin-bottom: 1rem;
+      .wp-editor-tabs,
+      #qt_artmocreateposteditor_toolbar {
+        display: none;
+      }
+      .mce-top-part::before {
+        box-shadow: none;
+      }
+      #wp-artmocreateposteditor-editor-tools {
+        position: absolute;
+        z-index: 2;
+        right: -1px;
+        top: 1px;
+        button.insert-media {
+          border-radius: 0;
+          height: 34px;
+          border: 0;
+          box-shadow: none;
+          background: #222;
+          color: #fff;
+        }
+      }
+      .mce-container.mce-tinymce {
+        box-shadow: none;
+      }
+    }
+    .create-post-cat-dropdown {
+      flex: 0 0 50%;
+      #cat {
+        width: 100%;
+        padding: 0.5em;
+        border: 1px solid #ccc;
+      }
     }
   }
   .create-post-buttons {
@@ -1133,8 +1167,15 @@ body > .um-notification-b {
     left: calc(50% - 100px);
 
     .um-notices-wrap.yes-shortcode {
-      margin-bottom: 0;
+      margin: 0 !important;
       box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.5);
+      .um-notices-box  {
+        padding: 10px;
+        .um-notices-close {
+          right: 20px;
+          top: 3px;
+        }
+      }
       &:after {
         bottom: 100%;
         left: 50%;

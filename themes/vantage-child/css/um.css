@@ -88,7 +88,7 @@ div.um-photo img {
   max-width: 100% !important; }
 
 .um-profile .um-row-heading {
-  margin-bottom: 20px !important; }
+  margin-bottom: 0 !important; }
 
 .um-profile-genres {
   margin: 1em 0 2em; }

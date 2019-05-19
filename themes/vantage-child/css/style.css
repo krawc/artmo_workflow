@@ -690,16 +690,42 @@ body > .um-notification-b {
   #create-post-container form[name=artmo_create_post] {
     display: flex;
     flex-wrap: wrap;
-    padding: 1em; }
+    padding: 4rem 2rem; }
   #create-post-container form[name=artmo_create_post] .create-post-title {
     flex: 0 0 100%;
     font-size: 28px;
     margin-bottom: 1rem;
-    border: 0; }
-  #create-post-container form[name=artmo_create_post] .create-post-content {
+    padding: 5px 10px;
+    border: 1px solid #ccc; }
+  #create-post-container form[name=artmo_create_post] #wp-artmocreateposteditor-wrap {
     flex: 0 0 100%;
     border: 0;
-    -webkit-appearance: none; }
+    position: relative;
+    margin-bottom: 1rem; }
+    #create-post-container form[name=artmo_create_post] #wp-artmocreateposteditor-wrap .wp-editor-tabs, #create-post-container form[name=artmo_create_post] #wp-artmocreateposteditor-wrap #qt_artmocreateposteditor_toolbar {
+      display: none; }
+    #create-post-container form[name=artmo_create_post] #wp-artmocreateposteditor-wrap .mce-top-part::before {
+      box-shadow: none; }
+    #create-post-container form[name=artmo_create_post] #wp-artmocreateposteditor-wrap #wp-artmocreateposteditor-editor-tools {
+      position: absolute;
+      z-index: 2;
+      right: -1px;
+      top: 1px; }
+      #create-post-container form[name=artmo_create_post] #wp-artmocreateposteditor-wrap #wp-artmocreateposteditor-editor-tools button.insert-media {
+        border-radius: 0;
+        height: 34px;
+        border: 0;
+        box-shadow: none;
+        background: #222;
+        color: #fff; }
+    #create-post-container form[name=artmo_create_post] #wp-artmocreateposteditor-wrap .mce-container.mce-tinymce {
+      box-shadow: none; }
+  #create-post-container form[name=artmo_create_post] .create-post-cat-dropdown {
+    flex: 0 0 50%; }
+    #create-post-container form[name=artmo_create_post] .create-post-cat-dropdown #cat {
+      width: 100%;
+      padding: 0.5em;
+      border: 1px solid #ccc; }
   #create-post-container .create-post-buttons {
     margin: 2rem 0 1rem;
     flex: 0 0 100%;
@@ -808,8 +834,13 @@ body > .um-notification-b {
     top: 60px;
     left: calc(50% - 100px); }
   .mobmenu .right-menu-btn-sell .um-notices-shortcode .um-notices-wrap.yes-shortcode {
-    margin-bottom: 0;
+    margin: 0 !important;
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5); }
+    .mobmenu .right-menu-btn-sell .um-notices-shortcode .um-notices-wrap.yes-shortcode .um-notices-box {
+      padding: 10px; }
+      .mobmenu .right-menu-btn-sell .um-notices-shortcode .um-notices-wrap.yes-shortcode .um-notices-box .um-notices-close {
+        right: 20px;
+        top: 3px; }
     .mobmenu .right-menu-btn-sell .um-notices-shortcode .um-notices-wrap.yes-shortcode:after {
       bottom: 100%;
       left: 50%;
@@ -1380,7 +1411,7 @@ div.um-photo img {
   max-width: 100% !important; }
 
 .um-profile .um-row-heading {
-  margin-bottom: 20px !important; }
+  margin-bottom: 0 !important; }
 
 .um-profile-genres {
   margin: 1em 0 2em; }

@@ -659,12 +659,31 @@ jQuery(document).ready(function( $ ){
       });
     }
 
+    // var orig_send_to_editor = window.send_to_editor;
+    //
+    // $('#upload_image_button').click(function() {
+    //   formfield = $(this).prev('input');
+    //   tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+    //
+    //   window.send_to_editor = function(html) {
+    //     var regex = /src="(.+?)"/;
+    //     var rslt =html.match(regex);
+    //     var imgurl = rslt[1];
+    //     formfield.val(imgurl);
+    //     tb_remove();
+    //     $('#show_'+formfield.attr('name')).html('<img src="'+imgurl+'" width="" />')
+    //     window.send_to_editor = orig_send_to_editor;
+    //   }
+    //
+    //   return false;
+    // });
+
     $( '#create_post_publish' ).on( 'click', function() {
       //var form_data = $( 'form[name="artmo_create_post"]' ).serializeArray();
       var data = {
         action: 'artmo_create_post',
-        form_data: $( 'form[name="artmo_create_post"]' ).serializeArray(),
-        status: 'publish'
+        form_data: $( 'form[name="artmo_create_post"]' ).serialize(),
+        status: 'pending'
       }
       console.log(data);
       $.ajax({
@@ -685,7 +704,7 @@ jQuery(document).ready(function( $ ){
       //var form_data = $( 'form[name="artmo_create_post"]' ).serializeArray();
       var data = {
         action: 'artmo_create_post',
-        form_data: $( 'form[name="artmo_create_post"]' ).serializeArray(),
+        form_data: $( 'form[name="artmo_create_post"]' ).serialize(),
         status: 'draft'
       }
       console.log(data);

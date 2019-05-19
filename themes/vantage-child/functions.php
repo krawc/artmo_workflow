@@ -30,6 +30,7 @@ require_once( __DIR__ . '/includes/plugins/woo.php');
 /* SPECIFIC FEATURES - KEEP THE ALPHABETICAL ORDER */
 
 require_once( __DIR__ . '/includes/features/compression.php');
+require_once( __DIR__ . '/includes/features/directories.php');
 require_once( __DIR__ . '/includes/features/editor.php');
 require_once( __DIR__ . '/includes/features/homepage.php');
 require_once( __DIR__ . '/includes/features/inputs.php');

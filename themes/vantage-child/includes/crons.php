@@ -116,8 +116,6 @@ function the_function_to_run(){
 
 }
 
-
-
 if(!wp_next_scheduled('check_user_videos_hourly'))
   wp_schedule_event(time(), 'hourly', 'check_user_videos_hourly');
 
@@ -211,5 +209,34 @@ function artmo_cron_user_videos() {
 
   $user_videos_countries = get_user_videos_countries($users);
   update_option('user_videos_countries', $user_videos_countries);
+
+
+
+}
+
+if(!wp_next_scheduled('update_users'))
+  wp_schedule_event(time(), 'hourly', 'update_users');
+
+add_action('update_users', 'artmo_update_accounts');
+
+function artmo_update_accounts() {
+
+  global $wpdb; // this is how you get access to the database
+  $user_query = get_users( );
+  $output = array();
+
+  if ( ! empty( $user_query ) ) {
+    foreach ( $user_query as $user ) {
+      $user_output = array();
+      $user_meta = get_userdata($user->ID);
+      $user_output['ID'] = $user->ID;
+      $user_output['roles'] = $user->roles;
+      $user_output['city'] = get_user_meta($user->ID, 'cityField');
+      $user_output['country'] = get_user_meta($user->ID, 'countryField');
+      $output[] = $user_output;
+    }
+  }
+
+  update_option('all_users', $output);
 
 }
