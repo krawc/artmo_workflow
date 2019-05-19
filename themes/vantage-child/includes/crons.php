@@ -214,10 +214,10 @@ function artmo_cron_user_videos() {
 
 }
 
-if(!wp_next_scheduled('update_users'))
-  wp_schedule_event(time(), 'hourly', 'update_users');
+// if(!wp_next_scheduled('update_users'))
+//   wp_schedule_event(time(), 'hourly', 'update_users');
 
-add_action('update_users', 'artmo_update_accounts');
+//add_action('update_users', 'artmo_update_accounts');
 
 function artmo_update_accounts() {
 
