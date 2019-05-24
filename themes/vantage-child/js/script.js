@@ -24,6 +24,7 @@ jQuery(document).ready(function( $ ){
   video_infinite_scroll();
   video_click_interactions();
   embed_codes();
+  members_infinite_scroll();
 
   function readMore() {
     $('.um-field-textarea').readmore({
@@ -657,6 +658,104 @@ jQuery(document).ready(function( $ ){
 
         }
       });
+    }
+
+    function members_infinite_scroll() {
+
+      var count = 0;
+      var container = $('.um-members');
+      if ( $(container).length > 0 ) {
+
+        var timer;
+        var windowHeight = $(window).height();
+        var triggerHeight = 0.5 * windowHeight;
+
+        var result = load_members(count);
+
+        $(window).on('scroll', function() {
+
+          if(timer) {
+            window.clearTimeout(timer);
+          }
+
+          timer = window.setTimeout(function() {
+            let scrollTop = $(this).scrollTop() + $(window).height();
+            let containerPos = $(container).offset().top + $(container).outerHeight();
+              if(scrollTop >= containerPos){
+                count++;
+                load_members(count);
+              }
+          }, 1000);
+        });
+      }
+    }
+
+    function load_members(page) {
+
+      let urlParams = new URLSearchParams(window.location.search);
+
+      let userRole = urlParams.get('role_select');
+
+      let roles = {
+        artists: 'um_artist',
+        universities: 'um_university',
+        galleries: 'um_gallery'
+      }
+      if(!userRole) {
+        for (var role in roles) {
+          if (roles.hasOwnProperty(role)) {
+            if (window.location.href.indexOf(role) > 0) {
+              userRole = roles[role];
+            }
+          }
+        }
+      }
+
+      let roleName = '';
+      if (userRole) {
+        roleName = userRole.substring(3);
+      }
+
+      let city = urlParams.get(roleName + 'CitySearchOptions');
+      let country = urlParams.get(roleName + 'CountrySearchOptions');
+      let genres = urlParams.get('genres');
+      let user_display_name = urlParams.get('user_display_name');
+
+
+
+
+      $.ajax({
+        url : trans_object.ajax_url,
+        type : 'post',
+        data : {
+          action : 'artmo_get_members_from_query',
+          page : page,
+          country : country,
+          city : city,
+          genres : genres,
+          name : user_display_name,
+          role: userRole
+        },
+        success : function( response ) {
+          console.log(page, country, city, genres, user_display_name);
+          if ( response !== '') {
+            let responseHTML = $.parseHTML(response);
+            console.log(response);
+            console.log(responseHTML);
+            let content = $('.um-members.masonry').append(responseHTML).masonry( 'appended', responseHTML );
+            $(window).trigger('resize');
+            //$('.um-members.masonry').masonry( 'reload' );
+
+          } else {
+            $('.um-members-preloader').html('<span class="no-results">No more results.</span>');
+          }
+
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          alert(xhr.status);
+        }
+      });
+
     }
 
     // var orig_send_to_editor = window.send_to_editor;

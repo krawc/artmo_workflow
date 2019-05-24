@@ -18,11 +18,20 @@ Table of contents:
 
 /* Miscellaneous improvements */
 
-body.responsive a.um-button {
+body .um a.um-button {
   border-radius: 0 !important;
   box-shadow: none !important;
+  color: #fff!important;
 }
 
+body .um .um-member-card a.um-button {
+  padding: 10px 15px!important;
+  display: inline-block!important;
+  margin: 0 auto!important;
+  min-width: 110px;
+  width: auto!important;
+  text-align: center;
+}
 /*** Account (user) page, Photo, My Account, Log-out = do not display My Account and Log-out link***/
 
 .um-misc-ul {
@@ -322,6 +331,11 @@ div.um-photo img {
   text-align: center;
   margin: 1em 0;
   font-size: 3rem;
+  &.um-members-preloader {
+    bottom: 0;
+    position: absolute;
+    margin: 4em 0 -1em;
+  }
   .ion-load-d {
     width: 1em;
     height: 1em;

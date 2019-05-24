@@ -210,32 +210,78 @@ function artmo_cron_user_videos() {
   $user_videos_countries = get_user_videos_countries($users);
   update_option('user_videos_countries', $user_videos_countries);
 
-
-
 }
 
-// if(!wp_next_scheduled('update_users'))
-//   wp_schedule_event(time(), 'hourly', 'update_users');
+function artmo_get_followers($user_id) {
+  $connections = UM()->Friends_API()->api()->count_friends_plain($user_id);
+  return $connections;
+}
 
-//add_action('update_users', 'artmo_update_accounts');
+function my_cron_schedules($schedules){
+    if(!isset($schedules["1min"])){
+        $schedules["1min"] = array(
+            'interval' => 60,
+            'display' => __('Once every 1 minute'));
+    }
+    if(!isset($schedules["5min"])){
+        $schedules["5min"] = array(
+            'interval' => 5*60,
+            'display' => __('Once every 5 minutes'));
+    }
+    if(!isset($schedules["30min"])){
+        $schedules["30min"] = array(
+            'interval' => 30*60,
+            'display' => __('Once every 30 minutes'));
+    }
+    return $schedules;
+}
+add_filter('cron_schedules','my_cron_schedules');
+
+add_action('update_users', 'artmo_update_accounts');
+
+if(!wp_next_scheduled('update_users'))
+  wp_schedule_event(time(), '5min', 'update_users');
 
 function artmo_update_accounts() {
 
   global $wpdb; // this is how you get access to the database
-  $user_query = get_users( );
+  $args_most_followed = array (
+    'role__in'       => array('um_artist', 'um_gallery', 'um_member', 'um_university', 'um_team_artmo'),
+    'order'      => 'DESC',
+    'orderby'    => 'friends',
+    'meta_query' => array(
+        array(
+            'key'     => 'profile_photo',
+            'value'   => '',
+            'compare' => '!='
+        )
+      )
+  );
+
+
+  // Create the WP_User_Query object
+  $wp_user_query_most_followed = new WP_User_Query( $args_most_followed );
+  $users_most_followed = $wp_user_query_most_followed->get_results();
   $output = array();
 
-  if ( ! empty( $user_query ) ) {
-    foreach ( $user_query as $user ) {
+  //if ( ! empty( $user_query ) ) {
+    foreach ( $users_most_followed as $user ) {
       $user_output = array();
+      $genres = array();
       $user_meta = get_userdata($user->ID);
       $user_output['ID'] = $user->ID;
       $user_output['roles'] = $user->roles;
-      $user_output['city'] = get_user_meta($user->ID, 'cityField');
-      $user_output['country'] = get_user_meta($user->ID, 'countryField');
+      $user_output['city'] = get_user_meta($user->ID, 'cityField', true);
+      $user_output['country'] = get_user_meta($user->ID, 'countryField', true);
+      $user_output['um_last_login'] = get_user_meta($user->ID, '_um_last_login', true);
+      if ( in_array( 'um_artist', $user->roles ) ) {
+        $user_output['genres'] = retrieve_genre_tags_by_id($user->ID);
+        //$user_output['media'] = retrieve_media_by_id($user->ID);
+      }
+      $user_output['name'] = get_user_meta($user->ID, 'user_display_name', true);
       $output[] = $user_output;
     }
-  }
+  //}
 
   update_option('all_users', $output);
 

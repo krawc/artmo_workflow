@@ -4,195 +4,190 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 function artmo_show_members_directory($args) {
 
-  $all_users = get_option('all_users');
+  wp_enqueue_style('um-followers');
 
-  //var_dump($all_users[0]);
+  extract( $args );
 
-  $first_10 = array_slice($all_users, 0, 10);
+  ?>
 
-  ?> <div class="um-members">
+  <div class="um-members">
 
-  	<div class="um-gutter-sizer"></div>
+	<div class="um-gutter-sizer"></div>
 
-    <?php
-    $i = 0; foreach( $first_10 as $member) { $i++; um_fetch_user( $member["ID"] );
+  <div class="um-members-preloader youtube-videos-preloader">
+    <i class="ion ion-load-d"></i>
+  </div>
 
-    $profile_photo = get_avatar( um_user('ID'), 50 );
+</div>
+<?php
 
-    if (empty($profile_photo)) {
-      $profile_photo = '<img src="' . um_get_default_avatar_uri() . '">';
-    }
+}
 
-    if ( um_profile( 'cover_photo' ) ) {
-      $cover_uri = um_get_cover_uri( um_profile( 'cover_photo' ), $attrs );
-    } elseif ( um_profile( 'synced_cover_photo' ) ) {
-      $cover_uri = um_profile( 'synced_cover_photo' );
-    } else {
-      $cover_uri = um_get_default_cover_uri();
-      $is_default = true;
-    }
+function artmo_members_get_args() {
+  $args = array(
+    "form_id" => "29172",
+    "template" => "members",
+    "css_profile_card_text" => "#444444",
+    "css_card_bordercolor" => "#cccccc",
+    "css_img_bordercolor" => "#cccccc",
+    "css_card_thickness" => "2px",
+    "mode" => "directory",
+    "has_profile_photo" => "0",
+    "has_cover_photo" => "0",
+    "sortby" => "most_followed",
+    "has_completed_profile" => "0",
+    "show_pm_button" => "0",
+    "profile_photo" => "1",
+    "cover_photos" => "1",
+    "show_name" => "1",
+    "show_tagline" => "1",
+    "show_userinfo" => "0",
+    "userinfo_animate" => "0",
+    "show_social" => "1",
+    "search" => "1",
+    "must_search" => "0",
+    "header" => "sorted by most followed",
+    "no_users" => "No matches for your search criteria. ",
+    "roles" => array( "um_artist" ),
+    "tagline_fields" => array( "role_radio", "cityField", "countryField" ),
+    "reveal_fields" => array( "text_field" ),
+    "search_fields" => array( "artistCountrySearchOptions", "artistCitySearchOptions", "genres", "user_display_name" )
+  );
+  return $args;
+}
 
-  	?>
 
-  	<div class="um-member um-role-<?php echo um_user( 'role' ); ?> <?php echo um_user('account_status'); ?> <?php if ($cover_uri) { echo 'with-cover'; } ?>">
+function artmo_output_members( $args, $members ) {
 
-  		<span class="um-member-status <?php echo um_user('account_status'); ?>"><?php echo um_user('account_status_name'); ?></span>
+    $args = artmo_members_get_args();
 
-  		<?php
-  		// if ($cover_photos) {
-  		// 	$sizes = UM()->options()->get('cover_thumb_sizes');
-  		// 	if ( UM()->mobile()->isTablet() ) {
-  		// 		$cover_size = $sizes[1];
-  		// 	} else {
-  		// 		$cover_size = $sizes[0];
-  		// 	}
-  		?>
+    extract( $args );
 
-  		<div class="um-member-cover" data-ratio="<?php echo UM()->options()->get('profile_cover_ratio'); ?>">
-  			<div class="um-member-cover-e"><a href="<?php echo um_user_profile_url(); ?>" title="<?php echo esc_attr(um_user('display_name')); ?>"><?php echo um_user('cover_photo', $cover_size); ?></a></div>
-  		</div>
+    $response = '';
 
-  		<?php //} ?>
+  	$i = 0; foreach( $members as $member) { $i++; um_fetch_user( $member["ID"]);
 
-  		<?php if ($profile_photo) {
+    $response .= '<div class="um-member um-role-' . um_user( 'role' ) . ' ' . um_user('account_status') . ' ' . 'with-cover' . '">';
+
+    $response .= '<span class="um-member-status ' . ' ' . um_user('account_status') . ' ' . um_user('account_status_name') . '"></span>';
+
+		if ($cover_photos) {
+			$sizes = UM()->options()->get('cover_thumb_sizes');
+			if ( UM()->mobile()->isTablet() ) {
+				$cover_size = $sizes[1];
+			} else {
+				$cover_size = $sizes[0];
+			}
+
+  		$response .= '<div class="um-member-cover" data-ratio="' . UM()->options()->get('profile_cover_ratio') . '">';
+  			$response .= '<div class="um-member-cover-e"><a href="' . um_user_profile_url() . '" title="' . esc_attr(um_user('display_name')) . '">' . um_user('cover_photo', $cover_size) . '</a></div>';
+  		$response .= '</div>';
+
+		}
+
+  	 if ($profile_photo) {
   			$default_size = str_replace( 'px', '', UM()->options()->get('profile_photosize') );
   			$corner = UM()->options()->get('profile_photocorner');
-  		?>
-  		<div class="um-member-photo radius-<?php echo $corner; ?>"><a href="<?php echo um_user_profile_url(); ?>" title="<?php echo esc_attr(um_user('display_name')); ?>"><img src="<?php echo $profile_photo; ?>"></a></div>
-  		<?php } ?>
 
-  					<div class="um-member-card <?php if (!$profile_photo) { echo 'no-photo'; } ?>">
+  	$response .= '<div class="um-member-photo radius-' . $corner . '"><a href="' . um_user_profile_url() . '" title="' . esc_attr(um_user('display_name')) . '">' . get_avatar( um_user('ID'), $default_size ) . '</a></div>';
 
-  						<?php //if ( $show_name ) { ?>
-  						<div class="um-member-name"><a href="<?php echo um_user_profile_url(); ?>" title="<?php echo esc_attr(um_user('display_name')); ?>"><?php echo um_user('display_name', 'html'); ?></a></div>
-  						<?php //} ?>
+    }
 
-  						<?php
-  						/**
-  						 * UM hook
-  						 *
-  						 * @type action
-  						 * @title um_members_just_after_name
-  						 * @description Show content just after user name
-  						 * @input_vars
-  						 * [{"var":"$user_id","type":"int","desc":"User ID"},
-  						 * {"var":"$args","type":"array","desc":"Member directory shortcode arguments"}]
-  						 * @change_log
-  						 * ["Since: 2.0"]
-  						 * @usage add_action( 'um_members_just_after_name', 'function_name', 10, 2 );
-  						 * @example
-  						 * <?php
-  						 * add_action( 'um_members_just_after_name', 'my_members_just_after_name', 10, 2 );
-  						 * function my_members_just_after_name( $user_id, $args ) {
-  						 *     // your code here
-  						 * }
-  						 * ?>
-  						 */
-  						do_action( 'um_members_just_after_name', um_user('ID'), $args ); ?>
+		  $response .= '<div class="um-member-card">';
 
-  						<?php if ( UM()->roles()->um_current_user_can( 'edit', um_user('ID') ) ) { ?>
-  							<div class="um-members-edit-btn">
-  								<a href="<?php echo um_edit_profile_url() ?>" class="um-edit-profile-btn um-button um-alt">
-  									<?php _e( 'Edit profile','ultimate-member' ) ?>
-  								</a>
-  							</div>
-  						<?php }
+  				if ( $show_name ) {
+  						$response .= '<div class="um-member-name"><a href="' . um_user_profile_url() . '" title="' . esc_attr(um_user('display_name')) . '">' . um_user('display_name', 'html') . '</a></div>';
+  				}
 
-  						/**
-  						 * UM hook
-  						 *
-  						 * @type action
-  						 * @title um_members_after_user_name
-  						 * @description Show content just after user name
-  						 * @input_vars
-  						 * [{"var":"$user_id","type":"int","desc":"User ID"},
-  						 * {"var":"$args","type":"array","desc":"Member directory shortcode arguments"}]
-  						 * @change_log
-  						 * ["Since: 2.0"]
-  						 * @usage add_action( 'um_members_after_user_name', 'function_name', 10, 2 );
-  						 * @example
-  						 * <?php
-  						 * add_action( 'um_members_after_user_name', 'my_members_after_user_name', 10, 2 );
-  						 * function my_members_after_user_name( $user_id, $args ) {
-  						 *     // your code here
-  						 * }
-  						 * ?>
-  						 */
-  						do_action( 'um_members_after_user_name', um_user('ID'), $args ); ?>
+          ob_start();
+          do_action( 'um_members_just_after_name', um_user('ID'), $args );
+          $contents = ob_get_contents(); // the actions output will now be stored in the variable as a string!
+          $response .= $contents;
+          ob_end_clean(); // never forget this or you will keep capturing output.
 
-  						<?php
-  						if ( $show_tagline && ! empty( $tagline_fields ) && is_array( $tagline_fields ) ) {
 
-  							um_fetch_user( $member );
 
-  							foreach( $tagline_fields as $key ) {
-  								if ( $key /*&& um_filtered_value( $key )*/ ) {
-  									$value = um_filtered_value( $key );
-  									if ( ! $value )
-  										continue;
-  						?>
+          if ( UM()->roles()->um_current_user_can( 'edit', um_user('ID') ) ) {
+						$response .= '<div class="um-members-edit-btn">';
+							$response .= '<a href="' . um_edit_profile_url() . '" class="um-edit-profile-btn um-button um-alt">';
+								 $response .= __( 'Edit profile','ultimate-member' );
+							$response .= '</a>';
+						$response .= '</div>';
+					}
 
-  						<div class="um-member-tagline um-member-tagline-<?php echo esc_attr( $key );?>"><?php _e( $value, 'ultimate-member'); ?></div>
+          ob_start();
+          do_action( 'um_members_after_user_name', um_user('ID'), $args );
+          $contents = ob_get_contents(); // the actions output will now be stored in the variable as a string!
+          $response .= $contents;
+          ob_end_clean(); // never forget this or you will keep capturing output.
 
-  						<?php
+					if ( $show_tagline && ! empty( $tagline_fields ) && is_array( $tagline_fields ) ) {
+
+						um_fetch_user( $member );
+						foreach( $tagline_fields as $key ) {
+							if ( $key /*&& um_filtered_value( $key )*/ ) {
+								$value = um_filtered_value( $key );
+								if ( ! $value )
+									continue;
+
+  				           $response .= '<div class="um-member-tagline um-member-tagline-' . esc_attr( $key ) . '">' . __( $value, 'ultimate-member') . '</div>';
+
   								} // end if
   							} // end foreach
   						} // end if $show_tagline
+  						if ( ! empty( $show_userinfo ) ) {
 
-  						if ( ! empty( $show_userinfo ) ) { ?>
+  							$response .= '<div class="um-member-meta-main">';
 
-  							<div class="um-member-meta-main">
+  							if ( $userinfo_animate ) {
+  								$response .= '<div class="um-member-more"><a href="#"><i class="um-faicon-angle-down"></i></a></div>';
+  							}
 
-  							<?php if ( $userinfo_animate ) { ?>
-  								<div class="um-member-more"><a href="#"><i class="um-faicon-angle-down"></i></a></div>
-  							<?php } ?>
+  							$response .= '<div class="um-member-meta">';
 
-  							<div class="um-member-meta <?php if ( ! $userinfo_animate ) { echo 'no-animate'; } ?>">
-
-  								<?php um_fetch_user( $member );
+  							um_fetch_user( $member );
   								if ( ! empty( $reveal_fields ) && is_array( $reveal_fields ) ) {
   									foreach ( $reveal_fields as $key ) {
   										if ( $key ) {
   											$value = um_filtered_value( $key );
   											if ( ! $value )
-  												continue; ?>
+  												continue;
 
-  											<div class="um-member-metaline um-member-metaline-<?php echo esc_attr( $key ); ?>"><span><strong><?php echo UM()->fields()->get_label( $key ); ?>:</strong> <?php _e( $value, 'ultimate-member'); ?></span></div>
+  											$response .= '<div class="um-member-metaline um-member-metaline-' . esc_attr( $key ) . '"><span><strong>' . UM()->fields()->get_label( $key ) . ':</strong> ' . __( $value, 'ultimate-member') . '</span></div>';
 
-  										<?php }
+  										}
   									}
   								}
+  								if ( $show_social ) {
+  									$response .= '<div class="um-member-connect">';
+  										UM()->fields()->show_social_urls();
+  									$response .= '</div>';
+  								}
 
-  								if ( $show_social ) { ?>
-  									<div class="um-member-connect">
-  										<?php UM()->fields()->show_social_urls(); ?>
-  									</div>
-  								<?php } ?>
+  							$response .= '</div>';
 
-  							</div>
+  							$response .= '<div class="um-member-less"><a href="#"><i class="um-faicon-angle-up"></i></a></div>';
 
-  							<div class="um-member-less"><a href="#"><i class="um-faicon-angle-up"></i></a></div>
+  						$response .= '</div>';
 
-  						</div>
+  						}
 
-  						<?php } ?>
+            $response .= $member['connections'];
 
-  					</div>
+  					$response .= '</div>';
 
-  	</div>
+  	     $response .= '</div>';
 
-  	<?php
   	um_reset_user_clean();
   	} // end foreach
-
   	um_reset_user();
-  	?>
 
-  	<div class="um-clear"></div>
-
-  </div>
-  <?php
+    return $response;
 
 }
 
-add_shortcode('artmo_show_members_directory', 'artmo_show_members_directory');
+remove_action( 'um_pre_directory_shortcode', 'um_pre_directory_shortcode' );
+
+remove_action( 'um_members_directory_display', 'um_members_directory_display', 10, 1 );
+
+add_action( 'um_members_directory_display', 'artmo_show_members_directory', 10, 1 );

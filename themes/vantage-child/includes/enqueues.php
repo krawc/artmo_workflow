@@ -14,7 +14,7 @@ if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
     }
 endif;
 //enqueue child theme css
-add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_child_css', 100 );
+add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_child_css', 10000 );
 
 // END ENQUEUE PARENT ACTION
 function chld_thm_cfg_child_css() {
@@ -28,11 +28,17 @@ function chld_thm_cfg_child_css() {
     }
   }
 
-  if(function_exists('is_ultimatemember')) {
-    if (is_ultimatemember() || is_page('artists')) {
+  // if(function_exists('is_ultimatemember')) {
+  //   if (is_ultimatemember() || is_page('artists')) {
       wp_enqueue_style( 'child_css_um', get_stylesheet_directory_uri() . '/css/um.css', array(  ) );
-    }
-  }
+
+  //   }
+  // }
+
+  wp_enqueue_style('um_followers');
+  wp_enqueue_script('um_followers');
+  wp_enqueue_style('um_friends');
+  wp_enqueue_script('um_friends');
 
   if(function_exists('is_wcfm_page')) {
     if (is_wcfm_page() || is_page('vendor-membership')) {

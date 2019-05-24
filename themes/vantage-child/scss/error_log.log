@@ -1523,3 +1523,5 @@
 03/02/19 8:47:56: style.scss - parse error: failed at `.members-slid` /homepages/3/d751374715/htdocs/clickandbuilds/ARTMO/wp-content/themes/vantage-child/scss/theme.scss on line 866
 03/25/19 9:00:51: style.scss - parse error: failed at `.um-artmo-pagi .pagi-arrow:hover,` /homepages/3/d751374715/htdocs/clickandbuilds/ARTMO/wp-content/themes/vantage-child/scss/um.scss on line 630
 03/25/19 9:09:14: style.scss - unclosed block: failed at `` /homepages/3/d751374715/htdocs/clickandbuilds/ARTMO/wp-content/themes/vantage-child/scss/theme.scss on line 1179
+05/22/19 8:27:12: style.scss - unclosed block: failed at `` /homepages/3/d751374715/htdocs/clickandbuilds/stages/751501352/wp-content/themes/vantage-child/scss/um.scss on line 932
+05/22/19 8:27:12: um.scss - unclosed block: failed at `` /homepages/3/d751374715/htdocs/clickandbuilds/stages/751501352/wp-content/themes/vantage-child/scss/um.scss on line 932
