@@ -158,6 +158,10 @@ function artmo_get_members_from_query() {
     array_multisort(array_map(function($element) {
         return $element['um_last_login'];
     }, $all_users), SORT_DESC, $all_users);
+  } else {
+    array_multisort(array_map(function($element) {
+        return $element['connections'];
+    }, $all_users), SORT_DESC, $all_users);
   }
 
   $members = array_slice($all_users, $start, $step);

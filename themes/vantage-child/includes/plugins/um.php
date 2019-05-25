@@ -314,39 +314,6 @@ function retrieve_genre_tags_artist() {
   }
 }
 
-function retrieve_genre_tags_by_id($user_id) {
-
-  um_fetch_user( $user_id );
-  $roles = artmo_get_user_roles_by_id( $user_id );
-
-  if ( in_array( 'um_artist', $roles ) ) {
-    $args = array(
-        'post_type'  => 'product',
-        'author'     => $user_id,
-    );
-    $wp_posts = get_posts($args);
-    $tags = array();
-    $contents = '';
-
-    if (count($wp_posts)) {
-        foreach ( $wp_posts as $post ) :
-
-          $post_id = $post->ID;
-          $terms = wp_get_post_terms($post_id, 'genre_tag');
-
-          foreach ($terms as $cat) {
-             $tags[] = $cat->name;
-          }
-
-          endforeach;
-
-      $tags = array_unique($tags);
-      return $tags;
-    }
-    return false;
-  }
-}
-
 function retrieve_media_by_id($user_id) {
 
   um_fetch_user( $user_id );

@@ -672,6 +672,8 @@ jQuery(document).ready(function( $ ){
 
         var result = load_members(count);
 
+        var loginPrompt = false;
+
         $(window).on('scroll', function() {
 
           if(timer) {
@@ -721,40 +723,39 @@ jQuery(document).ready(function( $ ){
       let genres = urlParams.get('genres');
       let user_display_name = urlParams.get('user_display_name');
 
+      let loginPrompt = false;
 
+      if (!loginPrompt) {
+        $.ajax({
+          url : trans_object.ajax_url,
+          type : 'post',
+          data : {
+            action : 'artmo_get_members_from_query',
+            page : page,
+            country : country,
+            city : city,
+            genres : genres,
+            name : user_display_name,
+            role: userRole
+          },
+          success : function( response ) {
+            if ( response !== '') {
+              let responseHTML = $.parseHTML(response);
+              console.log(response);
+              console.log(responseHTML);
+              let content = $('.um-members.masonry').append(responseHTML).masonry( 'appended', responseHTML );
+              $(window).trigger('resize');
+            } else {
+              //$('.um-members-preloader').html('<span class="no-results">No more results.</span>');
+              $('.um-members-preloader').fadeOut();
+            }
 
-
-      $.ajax({
-        url : trans_object.ajax_url,
-        type : 'post',
-        data : {
-          action : 'artmo_get_members_from_query',
-          page : page,
-          country : country,
-          city : city,
-          genres : genres,
-          name : user_display_name,
-          role: userRole
-        },
-        success : function( response ) {
-          console.log(page, country, city, genres, user_display_name);
-          if ( response !== '') {
-            let responseHTML = $.parseHTML(response);
-            console.log(response);
-            console.log(responseHTML);
-            let content = $('.um-members.masonry').append(responseHTML).masonry( 'appended', responseHTML );
-            $(window).trigger('resize');
-            //$('.um-members.masonry').masonry( 'reload' );
-
-          } else {
-            $('.um-members-preloader').html('<span class="no-results">No more results.</span>');
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
           }
-
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-          alert(xhr.status);
-        }
-      });
+        });
+      }
 
     }
 

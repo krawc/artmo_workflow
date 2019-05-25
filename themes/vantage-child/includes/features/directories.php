@@ -105,8 +105,6 @@ function artmo_output_members( $args, $members ) {
           $response .= $contents;
           ob_end_clean(); // never forget this or you will keep capturing output.
 
-
-
           if ( UM()->roles()->um_current_user_can( 'edit', um_user('ID') ) ) {
 						$response .= '<div class="um-members-edit-btn">';
 							$response .= '<a href="' . um_edit_profile_url() . '" class="um-edit-profile-btn um-button um-alt">';
@@ -171,8 +169,6 @@ function artmo_output_members( $args, $members ) {
   						$response .= '</div>';
 
   						}
-
-            $response .= $member['connections'];
 
   					$response .= '</div>';
 
