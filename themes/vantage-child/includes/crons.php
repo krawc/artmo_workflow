@@ -247,7 +247,7 @@ function artmo_update_accounts() {
   require_once( WP_CONTENT_DIR . '/plugins/ultimate-member/ultimate-member.php' );
   require_once( WP_CONTENT_DIR . '/plugins/um-friends/um-friends.php' );
 
-  delete_option( 'all_users' );
+  //delete_option( 'all_users' );
 
   global $wpdb; // this is how you get access to the database
   $args = array (
