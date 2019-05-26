@@ -102,7 +102,15 @@ function artmo_get_members_from_query() {
   $country = $_POST['country'];
   $genres = $_POST['genres'];
   $name = $_POST['name'];
-  $role = $_POST['role'];
+  $args = $_POST['args'];
+  $args_string = stripslashes($args);
+  $args_obj = json_decode($args_string, true);
+
+  $roles = $args_obj['roles']; //generally this is gonna be one role, but who knows lol
+
+  if ( isset($_POST['role']) && !empty($_POST['role']) ) {
+    $roles = array($_POST['role']);
+  }
 
   if ((isset($city)) && (!empty($city)) && ($city != 'all')) {
     $all_users = array_filter( $all_users, function($user) use ($city){
@@ -143,10 +151,11 @@ function artmo_get_members_from_query() {
     });
   }
 
-  if ((isset($role)) && (!empty($role))) {
-    $all_users = array_filter( $all_users, function($user) use ($role){
+  if ((isset($roles)) && (!empty($roles))) {
+    $all_users = array_filter( $all_users, function($user) use ($roles){
       if ($user['roles']) {
-        if (isset($user['roles']) && in_array($role, $user['roles'])) {
+        $matches = array_intersect($roles, $user['roles']);
+        if (isset($user['roles']) && (count($matches) > 0)) {
           return true;
         }
       }
@@ -166,7 +175,8 @@ function artmo_get_members_from_query() {
 
   $members = array_slice($all_users, $start, $step);
 
-  echo artmo_output_members( $args, $members );
+  //echo print_r($args_obj);
+  echo artmo_output_members( $args_obj, $members );
 
   wp_die();
 

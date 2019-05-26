@@ -722,6 +722,9 @@ jQuery(document).ready(function( $ ){
       let country = urlParams.get(roleName + 'CountrySearchOptions');
       let genres = urlParams.get('genres');
       let user_display_name = urlParams.get('user_display_name');
+      let query_args = $('input[name=query_args]').val();
+
+      console.log(query_args);
 
       let loginPrompt = false;
 
@@ -736,17 +739,16 @@ jQuery(document).ready(function( $ ){
             city : city,
             genres : genres,
             name : user_display_name,
-            role: userRole
+            role: userRole,
+            args: query_args
           },
           success : function( response ) {
             if ( response !== '') {
               let responseHTML = $.parseHTML(response);
-              console.log(response);
-              console.log(responseHTML);
-              let content = $('.um-members.masonry').append(responseHTML).masonry( 'appended', responseHTML );
+              let container = $('.um-members.masonry');
+              container.append(responseHTML).masonry( 'appended', responseHTML );
               $(window).trigger('resize');
             } else {
-              //$('.um-members-preloader').html('<span class="no-results">No more results.</span>');
               $('.um-members-preloader').fadeOut();
             }
 

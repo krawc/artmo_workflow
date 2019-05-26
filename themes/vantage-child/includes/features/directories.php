@@ -12,13 +12,15 @@ function artmo_show_members_directory($args) {
 
   <div class="um-members">
 
-	<div class="um-gutter-sizer"></div>
+  	<div class="um-gutter-sizer"></div>
 
-  <div class="um-members-preloader youtube-videos-preloader">
-    <i class="ion ion-load-d"></i>
+    <div class="um-members-preloader youtube-videos-preloader">
+      <i class="ion ion-load-d"></i>
+    </div>
+
   </div>
+  <input type="hidden" name="query_args" value='<?php echo json_encode($args); ?>'/>
 
-</div>
 <?php
 
 }
@@ -59,7 +61,9 @@ function artmo_members_get_args() {
 
 function artmo_output_members( $args, $members ) {
 
-    $args = artmo_members_get_args();
+    //$args = artmo_members_get_args();
+
+    //echo var_dump($args);
 
     extract( $args );
 
@@ -67,7 +71,7 @@ function artmo_output_members( $args, $members ) {
 
   	$i = 0; foreach( $members as $member) { $i++; um_fetch_user( $member["ID"]);
 
-    $response .= '<div class="um-member um-role-' . um_user( 'role' ) . ' ' . um_user('account_status') . ' ' . 'with-cover' . '">';
+    $response .= '<div class="um-member masonry-brick um-role-' . um_user( 'role' ) . ' ' . um_user('account_status') . ' ' . 'with-cover' . '">';
 
     $response .= '<span class="um-member-status ' . ' ' . um_user('account_status') . ' ' . um_user('account_status_name') . '"></span>';
 
@@ -121,10 +125,13 @@ function artmo_output_members( $args, $members ) {
 
 					if ( $show_tagline && ! empty( $tagline_fields ) && is_array( $tagline_fields ) ) {
 
-						um_fetch_user( $member );
+            //$response .= 'here';
+
+						um_fetch_user( $member["ID"] );
 						foreach( $tagline_fields as $key ) {
 							if ( $key /*&& um_filtered_value( $key )*/ ) {
 								$value = um_filtered_value( $key );
+
 								if ( ! $value )
 									continue;
 
@@ -143,7 +150,7 @@ function artmo_output_members( $args, $members ) {
 
   							$response .= '<div class="um-member-meta">';
 
-  							um_fetch_user( $member );
+  							um_fetch_user( $member["ID"] );
   								if ( ! empty( $reveal_fields ) && is_array( $reveal_fields ) ) {
   									foreach ( $reveal_fields as $key ) {
   										if ( $key ) {
