@@ -107,9 +107,24 @@ function artmo_get_members_from_query() {
   $args_obj = json_decode($args_string, true);
 
   $roles = $args_obj['roles']; //generally this is gonna be one role, but who knows lol
+  $show_these_users = $args_obj['show_these_users'];
 
   if ( isset($_POST['role']) && !empty($_POST['role']) ) {
     $roles = array($_POST['role']);
+  }
+
+  if (isset($show_these_users) && !empty($show_these_users)) {
+    $ids = array();
+    foreach ($show_these_users as $username) {
+      $curr_user = get_user_by('login', $username);
+      $ids[] = $curr_user->ID;
+    }
+    $all_users = array_filter( $all_users, function($user) use ($ids){
+      if (isset($user['ID']) && in_array($user['ID'], $ids)) {
+        return true;
+      }
+      return false;
+    });
   }
 
   if ((isset($city)) && (!empty($city)) && ($city != 'all')) {

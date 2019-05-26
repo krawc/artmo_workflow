@@ -698,6 +698,8 @@ jQuery(document).ready(function( $ ){
 
       let userRole = urlParams.get('role_select');
 
+      let roleName, city, country = '';
+
       let roles = {
         artists: 'um_artist',
         universities: 'um_university',
@@ -713,18 +715,22 @@ jQuery(document).ready(function( $ ){
         }
       }
 
-      let roleName = '';
-      if (userRole) {
-        roleName = userRole.substring(3);
+      roleName = userRole.substring(3);
+      city = urlParams.get(roleName + 'CitySearchOptions');
+      country = urlParams.get(roleName + 'CountrySearchOptions');
+
+      if (roleName == '') {
+        city = urlParams.get('citySearchOptions');
+        country = urlParams.get('countrySearchOptions');
       }
 
-      let city = urlParams.get(roleName + 'CitySearchOptions');
-      let country = urlParams.get(roleName + 'CountrySearchOptions');
+
+
       let genres = urlParams.get('genres');
       let user_display_name = urlParams.get('user_display_name');
       let query_args = $('input[name=query_args]').val();
 
-      console.log(query_args);
+      console.log(country);
 
       let loginPrompt = false;
 
