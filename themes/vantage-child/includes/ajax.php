@@ -163,7 +163,7 @@ function artmo_get_members_from_query() {
     });
   }
 
-  if ($role !== 'um_artist') {
+  if (in_array('um_artist', $roles)) {
     array_multisort(array_map(function($element) {
         return $element['um_last_login'];
     }, $all_users), SORT_DESC, $all_users);
