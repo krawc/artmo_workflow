@@ -660,10 +660,13 @@ jQuery(document).ready(function( $ ){
       });
     }
 
+
     function members_infinite_scroll() {
 
       var count = 0;
       var container = $('.um-members');
+      let loggedOut = $("body").hasClass("logged-out");
+
       if ( $(container).length > 0 ) {
 
         var timer;
@@ -684,53 +687,39 @@ jQuery(document).ready(function( $ ){
             let scrollTop = $(this).scrollTop() + $(window).height();
             let containerPos = $(container).offset().top + $(container).outerHeight();
               if(scrollTop >= containerPos){
-                count++;
-                load_members(count);
+                if (!loginPrompt) {
+                  count++;
+                  if (( count > 1) && (loggedOut)) {
+                    load_members(count, loggedOut);
+                    loginPrompt = true;
+                  } else {
+                    load_members(count);
+                  }
+                }
               }
           }, 1000);
         });
       }
     }
 
-    function load_members(page) {
+    function load_members(page, loggedOut=false) {
 
       let urlParams = new URLSearchParams(window.location.search);
-
       let userRole = urlParams.get('role_select');
-
       let roleName, city, country = '';
 
-      let roles = {
-        artists: 'um_artist',
-        universities: 'um_university',
-        galleries: 'um_gallery'
-      }
-      if(!userRole) {
-        for (var role in roles) {
-          if (roles.hasOwnProperty(role)) {
-            if (window.location.href.indexOf(role) > 0) {
-              userRole = roles[role];
-            }
-          }
-        }
-      }
-
-      roleName = userRole.substring(3);
-      city = urlParams.get(roleName + 'CitySearchOptions');
-      country = urlParams.get(roleName + 'CountrySearchOptions');
-
-      if (roleName == '') {
+      if (userRole) {
+        roleName = userRole.substring(3);//skip the um_ prefix
+        city = urlParams.get(roleName + 'CitySearchOptions');
+        country = urlParams.get(roleName + 'CountrySearchOptions');
+      } else {
         city = urlParams.get('citySearchOptions');
         country = urlParams.get('countrySearchOptions');
       }
 
-
-
       let genres = urlParams.get('genres');
       let user_display_name = urlParams.get('user_display_name');
       let query_args = $('input[name=query_args]').val();
-
-      console.log(country);
 
       let loginPrompt = false;
 
@@ -754,8 +743,19 @@ jQuery(document).ready(function( $ ){
               let container = $('.um-members.masonry');
               container.append(responseHTML).masonry( 'appended', responseHTML );
               $(window).trigger('resize');
+              if ((page > 1) && (loggedOut)) {
+                $.each( responseHTML, function( i, el ) {
+                  if (i > 1) {
+                    el.style.display = 'none';
+                    $(window).trigger('resize');
+                  }
+                  el.style.filter = 'blur(7px)';
+                  el.style.pointerEvents = 'none';
+                  $('.um-members-preloader').html('<div class="seemore"><h2>SEE MORE...</h2><div class="seemore-buttons"><a href="https://artmo.com/sign-up">SIGN UP</a><a href="https://artmo.com/sign-in">SIGN IN</a></div></div>');
+                });
+              }
             } else {
-              $('.um-members-preloader').fadeOut();
+              $('.um-members-preloader').html('<span class="no-results">No more results.</span>');
             }
 
           },

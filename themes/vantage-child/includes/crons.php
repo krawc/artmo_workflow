@@ -23,7 +23,9 @@ function the_function_to_run(){
 
     $countriesUniversities = array();
     $citiesUniversties = array();
+
     $genres = array();
+    $medias = array();
 
     if ( ! empty( $user_query ) ) {
     	foreach ( $user_query as $user ) {
@@ -57,7 +59,8 @@ function the_function_to_run(){
             );
             $wp_posts = get_posts($args);
             $contents = '';
-            $user_tags = array();
+            $user_genres = array();
+            $user_media = array();
             //if has products, add tags as user meta
             if (count($wp_posts)) {
               foreach ( $wp_posts as $post ) :
@@ -66,16 +69,18 @@ function the_function_to_run(){
                 $media = wp_get_post_terms($post_id, 'medium_cat');
                 foreach ($genreTags as $cat) {
                   $genres[$cat->name] = $cat->name;
-                  $user_tags[$cat->name] = $cat->name;
+                  $user_genres[$cat->name] = $cat->name;
                 }
                 foreach ($media as $cat) {
-                  $genres[$cat->name] = $cat->name;
-                  $user_tags[$cat->name] = $cat->name;
+                  $medias[$cat->name] = $cat->name;
+                  $user_media[$cat->name] = $cat->name;
                 }
               endforeach;
-              update_user_meta($user->ID, 'genres', $user_tags);
+              update_user_meta($user->ID, 'genres', $user_genres);
+              update_user_meta($user->ID, 'media', $user_media);
             } else {
               update_user_meta($user->ID, 'genres', array());
+              update_user_meta($user->ID, 'media', array());
             }
         }
 
@@ -87,6 +92,7 @@ function the_function_to_run(){
         }
       }
       ksort($genres);
+      ksort($medias);
       ksort($countries);
       ksort($cities);
       ksort($countriesGalleries);
@@ -100,7 +106,7 @@ function the_function_to_run(){
     }
 
    update_option( 'used_genres', $genres);
-   update_option( 'used_genres', $genres);
+   update_option( 'used_media', $medias);
 
    update_option( 'used_countries', $countries);
    update_option( 'used_cities', $cities);
@@ -274,13 +280,17 @@ function artmo_update_accounts() {
       $user_output['um_last_login'] = get_user_meta($user->ID, '_um_last_login', true);
       $user_output['connections'] = (int)$connections;
       if ( in_array( 'um_artist', $user->roles ) ) {
-        $genres = retrieve_genre_tags_by_id($user->ID);
-        $user_output['genres'] = $genres;
+        // $genres = retrieve_genre_tags_by_id($user->ID);
+        // $media = retrieve_medium_tags_by_id($user->ID);
+        $user_output['genres'] = get_user_meta($user->ID, 'genres');
+        $user_output['media'] = get_user_meta($user->ID, 'media');
       }
       $user_output['name'] = get_user_meta($user->ID, 'user_display_name', true);
       $output[] = $user_output;
     }
   }
+
+  shuffle($output);//randomize the order every 1 minute
 
   update_option('all_users', $output, true);
 
@@ -308,4 +318,29 @@ function retrieve_genre_tags_by_id($user_id) {
   }
 
   return $tags_unique;
+}
+
+function retrieve_medium_tags_by_id($user_id) {
+  $args = array(
+      'post_type'  => 'product',
+      'author'     => $user_id
+  );
+  $wp_posts = get_posts($args);
+
+  $medium_cats = array();
+
+  if (count($wp_posts)) {
+      foreach ( $wp_posts as $post ) :
+        $post_id = $post->ID;
+        $media = wp_get_post_terms($post_id, 'medium_cat');
+        foreach ($media as $cat) {
+           $medium_cats[] = $cat->name;
+        }
+
+      endforeach;
+
+      $medium_cats = array_unique($medium_cats);
+
+    return $medium_cats;
+  }
 }

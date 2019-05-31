@@ -61,10 +61,6 @@ function artmo_members_get_args() {
 
 function artmo_output_members( $args, $members ) {
 
-    //$args = artmo_members_get_args();
-
-    //echo var_dump($args);
-
     extract( $args );
 
     $response = '';

@@ -101,6 +101,7 @@ function artmo_get_members_from_query() {
   $city = $_POST['city'];
   $country = $_POST['country'];
   $genres = $_POST['genres'];
+  $media = $_POST['media'];
   $name = $_POST['name'];
   $args = $_POST['args'];
   $args_string = stripslashes($args);
@@ -156,6 +157,17 @@ function artmo_get_members_from_query() {
     });
   }
 
+  if ((isset($media)) && (!empty($media))) {
+    $all_users = array_filter( $all_users, function($user) use ($media){
+      if ($user['media'][0]) {
+        if (isset($user['media']) && in_array($media, $user['media'][0])) {
+          return true;
+        }
+      }
+      return false;
+    });
+  }
+
 
   if ((isset($name)) && (!empty($name))) {
     $all_users = array_filter( $all_users, function($user) use ($name){
@@ -178,13 +190,16 @@ function artmo_get_members_from_query() {
     });
   }
 
+
+  //sorting rules
+
   if (in_array('um_artist', $roles)) {
     array_multisort(array_map(function($element) {
-        return $element['um_last_login'];
-    }, $all_users), SORT_DESC, $all_users);
-  } else {
-    array_multisort(array_map(function($element) {
         return $element['connections'];
+    }, $all_users), SORT_DESC, $all_users);
+  } else if ((count($roles) > 1) && (in_array('um_member', $roles))){
+    array_multisort(array_map(function($element) {
+        return $element['um_last_login'];
     }, $all_users), SORT_DESC, $all_users);
   }
 

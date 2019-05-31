@@ -34,6 +34,21 @@ function get_all_genres() {
   return $allGenres;
 }
 
+function get_all_media() {
+  $allMedia = get_terms( array(
+    'taxonomy' => 'medium_cat',
+    'hide_empty' => true,
+) );
+
+  $mediaArr = array();
+
+  foreach ($allMedia as $medium) {
+    $mediaArr[$medium->name] = $medium->name;
+  }
+
+  return $mediaArr;
+}
+
 function get_all_countries() {
   $allCountries = get_option('used_countries');
   return $allCountries;

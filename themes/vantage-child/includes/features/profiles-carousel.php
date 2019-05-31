@@ -42,7 +42,7 @@ function artmo_profiles_carousel() {
 
 
   $arguments_non_artists = array (
-      'role__not_in' => array('administrator', 'um_artist'),
+      'role__not_in' => array('administrator', 'um_artist', 'um_team-artmo'),
       'number' => '20',
       'order' => 'DESC',
       'orderby' => 'meta_value_num',
