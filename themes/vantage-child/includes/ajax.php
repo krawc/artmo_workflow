@@ -193,15 +193,15 @@ function artmo_get_members_from_query() {
 
   //sorting rules
 
-  if (in_array('um_artist', $roles)) {
+  if ((count($roles) == 1) && (in_array('um_artist', $roles))) {
     array_multisort(array_map(function($element) {
         return $element['connections'];
     }, $all_users), SORT_DESC, $all_users);
-  } else if ((count($roles) > 1) && (in_array('um_member', $roles))){
+  } else if ((count($roles) > 1) || (in_array('um_member', $roles))){
     array_multisort(array_map(function($element) {
         return $element['um_last_login'];
     }, $all_users), SORT_DESC, $all_users);
-  }
+  }//else do nothing, i.e. keep the order random as it's been before
 
   $members = array_slice($all_users, $start, $step);
 

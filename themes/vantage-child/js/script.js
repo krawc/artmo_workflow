@@ -705,10 +705,27 @@ jQuery(document).ready(function( $ ){
     function load_members(page, loggedOut=false) {
 
       let urlParams = new URLSearchParams(window.location.search);
-      let userRole = urlParams.get('role_select');
-      let roleName, city, country = '';
+      let userRole, roleName, roleUrl, city, country = '';
+      let role_select = urlParams.get('role_select');
+      let roles = {
+        artists: 'um_artist',
+        universities: 'um_university',
+        galleries: 'um_gallery'
+      }
 
-      if (userRole) {
+      userRole = role_select;
+      if(!userRole) {
+        for (var role in roles) {
+          if (roles.hasOwnProperty(role)) {
+            if (window.location.href.indexOf(role) > 0) {
+              userRole = roles[role];
+              roleUrl = roles[role];
+            }
+          }
+        }
+      }
+
+      if (roleUrl) {
         roleName = userRole.substring(3);//skip the um_ prefix
         city = urlParams.get(roleName + 'CitySearchOptions');
         country = urlParams.get(roleName + 'CountrySearchOptions');
@@ -718,6 +735,7 @@ jQuery(document).ready(function( $ ){
       }
 
       let genres = urlParams.get('genres');
+      let media = urlParams.get('media');
       let user_display_name = urlParams.get('user_display_name');
       let query_args = $('input[name=query_args]').val();
 
@@ -733,6 +751,7 @@ jQuery(document).ready(function( $ ){
             country : country,
             city : city,
             genres : genres,
+            media : media,
             name : user_display_name,
             role: userRole,
             args: query_args

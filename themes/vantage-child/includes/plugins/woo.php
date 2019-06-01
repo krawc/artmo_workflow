@@ -337,6 +337,7 @@ add_filter( "woocommerce_catalog_orderby", "my_woocommerce_catalog_orderby", 20 
 
 function my_woocommerce_catalog_orderby( $orderby ) {
     unset($orderby["popularity"]);
+    unset($orderby["rating"]);
     return $orderby;
 }
 
