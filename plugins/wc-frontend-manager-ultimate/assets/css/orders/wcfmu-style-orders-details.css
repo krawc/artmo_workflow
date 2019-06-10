@@ -1,0 +1,20 @@
+#wcfm-main-contentainer #order_note_type { 
+ float: right;
+ width: 150px;
+}
+
+.customer-note td {
+	background: #A7CEDC !important;
+}
+
+.system-note td {
+	background: #efefef !important;
+}
+
+#wcfm-main-contentainer #orders_details_shipment_expander .wc-order-item-name {
+	font-size: 20px;
+}
+
+#wcfm-main-contentainer #orders_details_shipment_expander .fa {
+	font-size: 25px;
+}

@@ -1,0 +1,340 @@
+div.wcfm-content {
+	padding: 0px;
+	margin: 0px;
+}
+
+.wc_appointments_calendar_form .tablenav {
+	border: 1px solid #dedede;
+	background: #fff;
+	height: auto;
+	box-shadow: 0 1px 1px -1px rgba(0,0,0,.1);
+	-webkit-box-shadow: 0 1px 1px -1px rgba(0,0,0,.1);
+}
+
+.tablenav {
+	clear: both;
+	height: 30px;
+	margin: 6px 0 4px;
+	vertical-align: middle;
+}
+
+.wc_appointments_calendar_form .tablenav .filters {
+	float: left;
+	line-height: 30px;
+	padding: 5px;
+	border-right: 1px solid #ddd;
+}
+
+.wc_appointments_calendar_form .tablenav .date_selector {
+	margin-left: 5px;
+	display: block;
+	float: left;
+}
+
+.wc_appointments_calendar_form .tablenav .date_selector a.prev {
+	float: left;
+}
+
+.wc_appointments_calendar_form .tablenav .date_selector a {
+	display: inline-block;
+	position: relative;
+	height: 1em;
+	font-size: 1.5em;
+	padding: .6em;
+	float: left;
+	color: #00897b;
+}
+
+.wc_appointments_calendar_form .tablenav .date_selector div {
+	padding: 5px 0;
+	float: left;
+	display: inline-block;
+	width: 200px;
+}
+
+.wc_appointments_calendar_form .tablenav .date_selector div.month_view {
+	width: 100px;
+}
+
+.wc_appointments_calendar_form .tablenav .date_selector div:first-of-type select {
+	margin-right: 5px;
+}
+
+#wcfm-main-contentainer .wc_appointments_calendar_form .tablenav .date_selector select {
+	vertical-align: middle;
+	width: 6em;
+}
+
+#wcfm-main-contentainer select.wcfm-select {
+	margin-bottom: 0px;
+}
+
+#wcfm-main-contentainer .wc_appointments_calendar_form .tablenav .date_selector input {
+	border: 1px solid #ddd;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+	background-color: #fff;
+	color: #32373c;
+	outline: 0;
+	-webkit-transition: 50ms border-color ease-in-out;
+	transition: 50ms border-color ease-in-out;
+	width: 100%;
+	margin-bottom: 0px;
+}
+
+.wc_appointments_calendar_form .tablenav .views {
+	float: right;
+	padding: 0;
+	border-left: 1px solid #ddd;
+}
+
+.wc_appointments_calendar_form .tablenav .views a {
+	padding: 14px 20px;
+	display: inline-block;
+	text-decoration: none;
+	color: #00897b;
+	font-weight: 600;
+}
+
+.wc_appointments_calendar_form .wc_appointments_calendar {
+	width: 100%;
+  margin: 1em 0 0!important;
+}
+
+#wcfm-main-contentainer .wc_appointments_calendar_form .wc_appointments_calendar td {
+	color: #bbb;
+	text-align: right;
+	padding: 8px 8px 0 0;
+	font-size: 20px;
+	border-right: 1px solid #ddd !important;
+	border-bottom: 1px solid #ddd !important;
+	height: 120px;
+}
+
+.wc_appointments_calendar_form .wc_appointments_calendar td a {
+	color: #356AA0;
+}
+
+.wc_appointments_calendar_form .wc_appointments_calendar .calendar-diff-month {
+  background: #efefef;
+}
+
+.wc_appointments_calendar_form .wc_appointments_calendar td .appointments {
+	overflow: auto;
+	height: 100px;
+	width: 100%;
+	text-align: left;
+	font-family: HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",sans-serif;
+}
+
+.wc_appointments_calendar_form .wc_appointments_calendar td .appointments ul, , .wc_appointments_calendar_form .calendar_wrapper ul {
+	padding: 0;
+	margin: 0;
+}
+
+.wc_appointments_calendar_form .wc_appointments_calendar td .appointments ul li, , .wc_appointments_calendar_form .calendar_wrapper ul li {
+	padding: 0;
+	margin: 0 0 4px;
+	list-style: none;
+}
+
+.wc_appointments_calendar_form .wc_appointments_calendar td .appointments ul li a, , .wc_appointments_calendar_form .calendar_wrapper ul li a {
+	border-left: 4px solid #eee;
+	padding: 3px 3px 3px 8px;
+	display: block;
+	font-size: 10px;
+	color: #555;
+	line-height: 15px;
+  font-weight: 400;
+}
+
+.wc_appointments_calendar_form .wc_appointments_calendar td .appointments ul li a strong, .wc_appointments_calendar_form .calendar_wrapper ul li a strong {
+	font-size: 12px;
+	word-wrap: break-word;
+	font-weight: 500;
+	line-height: 15px;
+	color: #00897b;
+}
+
+.wc_appointments_calendar_form .wc_appointments_calendar td .appointments ul li a ul li {
+	list-style: none;
+	font-size: 10px;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	line-height: 15px;
+}
+
+.wc_appointments_calendar_form .calendar_days {
+	position: relative;
+	height: 1440px;
+	overflow: hidden;
+	overflow-x: scroll;
+	border: 1px solid #ddd;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA8CAYAAACn8dD6AAAAIElEQVQYGWO4e/fuf4afP3/+Z2IAgsFCfP36lWHQuQoAvaoOvF/jxHkAAAAASUVORK5CYII=);
+	background-repeat: repeat;
+	background-position: 0 0;
+}
+
+.wc_appointments_calendar_form .calendar_days .hours {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: -.5em 0 0 0;
+}
+
+.wc_appointments_calendar_form .calendar_days .hours li {
+	height: 60px;
+	vertical-align: top;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.wc_appointments_calendar_form .calendar_days .hours li label {
+	float: left;
+	background: #f9f9f9;
+	padding: 0 8px;
+}
+
+.wc_appointments_calendar_form .calendar_days .appointments {
+	margin: 0 0 0 100px;
+	padding: 0;
+	height: 100%;
+	white-space: nowrap;
+	position: relative;
+}
+
+.wc_appointments_calendar_form .calendar_days .appointments li a {
+	display: block;
+	padding: 2px 4px;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	color: #fff;
+	text-decoration: none;
+}
+
+.wc_appointments_calendar_form .calendar_days .header_wrapper {
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+	margin: 0;
+	min-width: 100%;
+	padding: 0px;
+	padding-left: 101px;
+	width: auto;
+	white-space: nowrap;
+	z-index: 8;
+}
+
+.wc_appointments_calendar_form .calendar_days .header_wrapper li {
+	width: 170px;
+	min-height: 30px;
+	height: 75px;
+	display: inline-block;
+	display: inline-table;
+	border-left: 1px solid #ddd;
+	margin-bottom: 0;
+	box-sizing: border-box;
+	cursor: default;
+}
+
+.wc_appointments_calendar_form .calendar_days .header_wrapper li a {
+	margin: 10px;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	text-decoration: none;
+	z-index: 9;
+	color: #356AA0;
+}
+
+.wc_appointments_calendar_form .calendar_days .header_wrapper li a span.daynum {
+	font-size: 3em;
+}
+
+.wc_appointments_calendar_form .calendar_days .header_wrapper li a span {
+	vertical-align: top;
+	display: block;
+	line-height: 1;
+}
+
+.wc_appointments_calendar_form .calendar_days.calendar_view_by_day .appointments {
+	background-image: linear-gradient(to right,#bbb,rgba(255,255,255,0) 1px);
+	background-size: 170px;
+	background-repeat: repeat;
+	background-position: 101px 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.wc_appointments_calendar_form .calendar_days.calendar_view_by_day {
+	display: table;
+}
+
+.wc_appointments_calendar_form{margin:1em 0 0!important}
+.wc_appointments_calendar_form .appointments{color:#000;overflow:auto;height:100px;width:100%;text-align:left}
+.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment){padding:0;margin:0 0 4px 0;list-style:none}
+.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a{background-color:rgba(255,255,255,.8);color:#000;display:block;margin-left:4px;padding:2px 4px;position:relative;text-decoration:none}
+.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a:hover{background-color:rgba(255,255,255,.7)}
+.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul{padding:0;margin:0}
+.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li{list-style:none;font-size:.75em;padding:0;margin:0;border:0}
+.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status{display:inline-block;position:absolute;top:3px;left:auto;right:6px;text-align:right}
+.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status:before{font-family:WooCommerce;speak:none;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;margin:0;text-indent:0;content:'';font-size:1.2em}
+.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status.status-incart:before,.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status.status-unpaid:before{content:"\e033"}.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status.status-pending-confirmation:before,.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status.status-pending:before{content:"\e012"}.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status.status-confirmed:before{content:"\e011"}.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status.status-paid:before{content:"\e015"}.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status.status-cancelled:before{content:"\e013"}.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status.status-complete:before{content:"\e015"}
+.wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a ul li.appointment_status.status-wc-partial-payment:before { content: "\e011"; }
+.wc_appointments_calendar_form .calendar_wrapper{border:1px solid #ddd;}
+.wc_appointments_calendar_form.week_view .calendar_wrapper{overflow-x:auto;}
+.wc_appointments_calendar_form .calendar_days{position:relative;box-sizing:border-box;overflow:hidden;transform:translateZ(0)}
+.wc_appointments_calendar_form .calendar_days>*{box-sizing:inherit;margin:0}
+.wc_appointments_calendar_form .calendar_days .grid{position:absolute;width:100%;background-image:linear-gradient(to bottom,#666 0,#f9f9f9 1%,#f9f9f9 25%,#ddd 25%,#f9f9f9 26%,#f9f9f9 50%,#ddd 50%,#f9f9f9 51%,#f9f9f9 75%,#ddd 75%,#f9f9f9 76%);background-repeat:repeat;background-position-x:0;background-size:auto 4.16667%;background-origin:content-box;transform:translateZ(0);z-index:2}.wc_appointments_calendar_form .calendar_days .hours{position:relative;float:left;width:100px;margin:0;z-index:4}.wc_appointments_calendar_form .calendar_days .hours li{height:60px;height:calc(4.16667%);vertical-align:top;padding:0;margin:0}.wc_appointments_calendar_form .calendar_days .hours li label{float:left;background:#f9f9f9;padding:0 8px;margin-top:-9px;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.wc_appointments_calendar_form .calendar_days .allday_label{box-sizing:border-box;box-shadow:0 1px 0 #ddd;width:100px;padding:6px 12px;display:block;position:relative;float:left;z-index:6}.wc_appointments_calendar_form .calendar_days .appointments{padding:0 0 0 100px;position:absolute;white-space:nowrap;z-index:3}.wc_appointments_calendar_form .calendar_days .appointments>li:not(.multiple-staff-appointment){position:absolute;width:168px;overflow:hidden;border-top:1px solid rgba(255,255,255,.7)}.wc_appointments_calendar_form .calendar_days .appointments>li:not(.multiple-staff-appointment):hover{z-index:10;box-shadow:0 8px 9px -6px rgba(0,0,0,.2);transition:all 150ms ease}.wc_appointments_calendar_form .calendar_days .appointments>li:not(.multiple-staff-appointment)>a{height:100%;width:100%}.wc_appointments_calendar_form .calendar_days .appointments>li:not(.multiple-staff-appointment)>a ul li.appointment_status{right:16px}.wc_appointments_calendar_form .calendar_days .appointments .multiple-staff-appointment{opacity:.5;position:absolute;width:168px;z-index:-1}.wc_appointments_calendar_form .calendar_days .appointments .multiple-staff-appointment a{display:block;width:100%;height:100%;background-color:transparent;background-image:linear-gradient(-45deg,rgba(255,255,255,.5) 0,rgba(255,255,255,.5) 44%,#fff 45%,#fff 55%,rgba(255,255,255,.5) 56%,rgba(255,255,255,.5) 100%);background-size:4px 4px;background-repeat:repeat}.wc_appointments_calendar_form .calendar_days .appointments.allday{background-color:#fff;height:auto;min-height:30px;z-index:5}.wc_appointments_calendar_form .calendar_days .appointments.allday>li{position:relative;float:left;margin:3px 3px 0 0}.wc_appointments_calendar_form .calendar_days .appointments.bytime>li:not(.multiple-staff-appointment):hover{min-height:60px}.wc_appointments_calendar_form .calendar_days .time_indicator{width:100%;height:0;margin-top:-1px;border-bottom:2px solid rgba(255,0,0,.9);background-color:rgba(255,255,255,.5);position:absolute}.wc_appointments_calendar_form .calendar_days.calendar_view_by_staff .grid{background-image:linear-gradient(to bottom,#000 0,#ddd 1%,#ddd 25%,#666 25%,#ddd 26%,#ddd 50%,#666 50%,#ddd 51%,#ddd 75%,#666 75%,#ddd 76%)}.wc_appointments_calendar_form .calendar_days.calendar_view_by_staff .staff{z-index:8;margin:0;padding-left:100px;background-color:#fff;border-bottom:1px solid #ddd;white-space:nowrap;min-width:100%;width:auto;height:30px}.wc_appointments_calendar_form .calendar_days.calendar_view_by_staff .staff li{width:170px;min-height:30px;display:inline-block;text-align:center;border-left:1px solid #ddd;margin-bottom:0;padding-top:5px;box-sizing:border-box;cursor:default}.wc_appointments_calendar_form .calendar_days.calendar_view_by_staff .staff li a{margin:0 5px 0 -10px;display:inline-block;vertical-align:top;text-decoration:none}.wc_appointments_calendar_form .calendar_days.calendar_view_by_staff .staff li a img{border-radius:50%;margin-right:5px}.wc_appointments_calendar_form .calendar_days.calendar_view_by_staff .staff li a span{vertical-align:top}.wc_appointments_calendar_form .calendar_days.calendar_view_by_staff .staff li a:hover{opacity:.8}.wc_appointments_calendar_form .calendar_days.calendar_view_by_staff .staff li.secondary{color:#aaa}.wc_appointments_calendar_form .calendar_days.calendar_view_by_staff .staff:not(.duplicate) li#current_user{font-weight:500;background:#0073aa;color:#fff}
+
+.status-cancelled { color: #36393D; }
+.status-complete { color: #4096EE; }
+.status-confirmed { color: #008C00; }
+.status-paid { color: #FF0084; }
+.status-wc-partial-payment { color: #C79810; }
+.status-pending-confirmation { color: #FF7400; }
+
+.wc_appointments_calendar_form .day_label_short { display: none; }
+
+@media only screen and (max-width: 640px) {
+	.wc_appointments_calendar_form .tablenav .filters {
+		float: none;
+		text-align: center;
+	}
+	
+	.wc_appointments_calendar_form .tablenav .date_selector {
+		margin: 0px auto;
+		text-align: center;
+		width: 100%;
+		float: none;
+	}
+	
+	.wc_appointments_calendar_form .tablenav .date_selector a {
+		float: none;
+	}
+	
+	.wc_appointments_calendar_form .tablenav .date_selector div {
+		float: none;
+	}
+	
+	.wc_appointments_calendar_form .tablenav .views {
+		float: none;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+	}
+	
+	#wcfm-main-contentainer table td, #wcfm-main-contentainer table thead th {
+    padding: 1em .5em !important;
+  }
+  
+  .wc_appointments_calendar_form .day_label_long { display: none; }
+  .wc_appointments_calendar_form .day_label_short { display: block; }
+  
+  .wc_appointments_calendar_form .appointments ul li a ul li:not(.appointment_status) { display: none; }
+  .wc_appointments_calendar_form .appointments li:not(.multiple-staff-appointment) a { padding: 0px; margin-left: 1px; }
+  .wc_appointments_calendar_form .wc_appointments_calendar td .appointments ul li a strong, .wc_appointments_calendar_form .calendar_wrapper ul li a strong { font-size: 10px; }
+  .wc_appointments_calendar_form .calendar_days .allday_label { padding: 2px; }
+}
