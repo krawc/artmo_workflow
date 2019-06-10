@@ -63,6 +63,14 @@ div.uimob340 .um-search .um-search-submit .um-button {
 
 .single-um_groups #page-wrapper .um-avatar {
   border-radius: 0 !important; }
+
+body .um .um-groups-single-button a.um-button.um-groups-btn-leave {
+  padding: 0 !important;
+  text-align: right;
+  background: transparent;
+  color: #ccc !important;
+  font-size: 14px;
+  line-height: 2em !important; }
 /* Profile menu */
 h2.um-tabs-single-header {
   display: none;
