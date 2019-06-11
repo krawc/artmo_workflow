@@ -266,8 +266,11 @@ function artmo_update_accounts() {
   //delete_option( 'all_users' );
 
   global $wpdb; // this is how you get access to the database
+
+  // Prepare for BIG SELECT query
+	$wpdb->query('SET SQL_BIG_SELECTS=1');
+
   $args = array (
-    'number'         => 5000,
     'orderby'        => 'rand',
     'role__in'       => array('um_artist', 'um_gallery', 'um_member', 'um_university', 'um_team-artmo')
   );
