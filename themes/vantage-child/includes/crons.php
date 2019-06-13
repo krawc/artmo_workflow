@@ -10,7 +10,20 @@ add_action('my_hourly_events', 'the_function_to_run');
 
 function the_function_to_run(){
 
-    $user_query = get_users( array( 'fields' => array( 'ID' ) ) );
+    global $wpdb;
+
+    // Prepare for BIG SELECT query
+    $wpdb->query('SET SQL_BIG_SELECTS=1');
+
+    $args = array (
+      'orderby'        => 'rand',
+      'role__in'       => array('um_artist', 'um_gallery', 'um_member', 'um_university', 'um_team-artmo')
+    );
+
+
+    // Create the WP_User_Query object
+    $wp_user_query = new WP_User_Query( $args );
+    $user_query = $wp_user_query->get_results();
 
     $countries = array();
     $cities = array();
