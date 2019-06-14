@@ -190,6 +190,20 @@ function artmo_get_members_from_query() {
     });
   }
 
+  if ((isset($roles)) && (!empty($roles))) {
+    if (in_array('um_gallery', $roles) && (count($roles) == 1)) {
+      $all_users = array_filter( $all_users, function($user) use ($roles){
+        $profile_photo = get_user_meta($user['ID'], 'profile_photo', true);
+        $cover_photo = get_user_meta($user['ID'], 'cover_photo', true);
+        $city = get_user_meta($user['ID'], 'cityField', true);
+        $country = get_user_meta($user['ID'], 'countryField', true);
+        if (!empty($profile_photo) && !empty($cover_photo) && !empty($city) && !empty($country)) {
+          return true;
+        }
+        return false;
+      });
+    }
+  }
 
   //sorting rules
 
