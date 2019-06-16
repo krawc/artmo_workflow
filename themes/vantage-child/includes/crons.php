@@ -12,6 +12,7 @@ function the_function_to_run(){
 
     $user_query = get_users( array( 'fields' => array( 'ID' ) ) );
 
+    $countriesAndCities = array();
     $countries = array();
     $cities = array();
 
@@ -35,6 +36,15 @@ function the_function_to_run(){
 
         update_user_meta($user->ID, 'countrySearchOptions', $country);
         update_user_meta($user->ID, 'citySearchOptions', $city);
+
+        if (isset($countriesAndCities[$country]) && !empty($countriesAndCities[$country])) {
+          $countriesAndCities[$country][$city] = $city;//add to an existing array
+          ksort($countriesAndCities[$country]);
+          //$countriesAndCities[$country] = array_iunique($countriesAndCities[$country]);
+
+        } else {
+          $countriesAndCities[$country] = array($city => $city);//initialize array
+        }
 
         $countries[$country] = $country;
         $cities[$city] = $city;
@@ -93,6 +103,7 @@ function the_function_to_run(){
       }
       ksort($genres);
       ksort($medias);
+      ksort($countriesAndCities);
       ksort($countries);
       ksort($cities);
       ksort($countriesGalleries);
@@ -108,6 +119,8 @@ function the_function_to_run(){
    update_option( 'used_genres', $genres);
    update_option( 'used_media', $medias);
 
+
+   update_option( 'used_countries_and_cities', $countriesAndCities );
    update_option( 'used_countries', $countries);
    update_option( 'used_cities', $cities);
 

@@ -219,7 +219,7 @@ function artmo_get_members_from_query() {
 
   $members = array_slice($all_users, $start, $step);
 
-  //echo print_r($args_obj);
+  //echo print_r(get_option('used_countries_and_cities'));
   echo artmo_output_members( $args_obj, $members );
 
   wp_die();
