@@ -98,7 +98,9 @@ body .um .um-groups-single-button a.um-button.um-groups-btn-leave {
   line-height: 2em!important;
 }
 
-
+a.um-button.um-groups-btn-join:empty {
+  display: none;
+}
 
 /* Profile menu */
 
@@ -705,6 +707,7 @@ div.uimob800 .um-account-side li a.current:hover
     }
   }
 }
+
 
 
 

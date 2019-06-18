@@ -595,3 +595,37 @@ function artmo_um_friends_add_button( $args ) {
 	}
 }
 add_action( 'um_before_profile_main_meta', 'artmo_um_friends_add_button' );
+
+
+function um_change_role_order( $roles ) {
+
+  global $wp_roles;
+			$role_keys = get_option( 'um_roles' );
+			if ( ! empty( $role_keys ) && is_array( $role_keys ) ) {
+				$role_keys = array_map( function( $item ) {
+					return 'um_' . $item;
+				}, $role_keys );
+			} else {
+				$role_keys = array();
+			}
+      $exclude_roles = array_diff( array_keys( $wp_roles->roles ), array_merge( $role_keys, array( 'subscriber' ) ) );
+			$um_roles = UM()->roles()->get_roles( false, $exclude_roles );
+
+  //unset($roles['role_select']);
+  $roles['role_select'] = array(
+					'title' => __('Roles (Dropdown)','ultimate-member'),
+					'metakey' => 'roles',//it is NOT role_select - it works
+					'type' => 'select',
+					'label' => __('Acc Type','ultimate-member'),
+					'placeholder' => 'Choose account type',
+					'required' => 0,
+					'public' => 1,
+					'editable' => 1,
+					'options' => array('um_gallery' => 'Galleries', 'um_artist' => 'Artists', 'um_member' => 'Members', 'um_university' => 'Universities', 'um_team-artmo' => 'Team ARTMO'),
+				);
+
+  return $roles;
+
+}
+
+add_filter( 'um_predefined_fields_hook', 'um_change_role_order' );

@@ -71,6 +71,9 @@ body .um .um-groups-single-button a.um-button.um-groups-btn-leave {
   color: #ccc !important;
   font-size: 14px;
   line-height: 2em !important; }
+
+a.um-button.um-groups-btn-join:empty {
+  display: none; }
 /* Profile menu */
 h2.um-tabs-single-header {
   display: none;

@@ -51,12 +51,19 @@ function get_all_media() {
 
 function get_all_countries() {
   $allCountries = get_option('used_countries');
+  //$allCountries = get_option('used_countries_and_cities');
   return $allCountries;
 }
 
 function get_all_cities() {
-  $allCities = get_option('used_cities');
-  return $allCities;
+  $allCountriesAndCities = get_option('used_countries_and_cities');
+  $country = $_REQUEST['countrySearchOptions'];
+  if (!empty($country) && !empty($allCountriesAndCities[$country])) {
+    return $allCountriesAndCities[$country];
+  }
+  return get_option('used_cities');
+//  $allCities =
+
 }
 
 function get_galleries_countries() {
@@ -218,6 +225,13 @@ function artmo_inches2feet($inches)
      $feet = intval($inches/12);
      $inches = $inches%12;
      return sprintf('%d\'%d"', $feet, $inches);
+}
+
+function array_iunique( $array ) {
+    return array_intersect_key(
+        $array,
+        array_unique( array_map( "strtolower", $array ) )
+    );
 }
 
 

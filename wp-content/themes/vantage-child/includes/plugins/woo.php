@@ -484,7 +484,8 @@ function woo_more_products_tab() {
       'post_type' => 'product',
       'posts_per_page' => 8,
       'author' => $artist_id,
-      'orderby' => 'rand'
+      'orderby' => 'rand',
+      'post__not_in' => array($prod_id)
   );
   $query = new WP_Query( $args );
   ?>
