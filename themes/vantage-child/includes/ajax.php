@@ -107,7 +107,8 @@ function artmo_get_members_from_query() {
   $args_string = stripslashes($args);
   $args_obj = json_decode($args_string, true);
 
-  $roles = $args_obj['roles']; //generally this is gonna be one role, but who knows lol
+  $roles_arg = $args_obj['roles'];
+  $roles = $roles_arg; //generally this is gonna be one role, but who knows lol
   $show_these_users = $args_obj['show_these_users'];
 
   if ( isset($_POST['role']) && !empty($_POST['role']) ) {
@@ -191,13 +192,29 @@ function artmo_get_members_from_query() {
   }
 
 
+  if ((isset($roles_arg)) && (!empty($roles_arg))) {
+    if (in_array('um_gallery', $roles_arg) && (count($roles_arg) == 1)) {
+      $all_users = array_filter( $all_users, function($user) use ($roles_arg){
+        $profile_photo = get_user_meta($user['ID'], 'profile_photo', true);
+        $cover_photo = get_user_meta($user['ID'], 'cover_photo', true);
+        $city = get_user_meta($user['ID'], 'cityField', true);
+        $country = get_user_meta($user['ID'], 'countryField', true);
+        if (!empty($profile_photo) && !empty($cover_photo) && !empty($city) && !empty($country)) {
+          return true;
+        }
+        return false;
+      });
+    }
+  }
+
+
   //sorting rules
 
-  if ((count($roles) == 1) && (in_array('um_artist', $roles))) {
+  if ((count($roles_arg) == 1) && (in_array('um_artist', $roles_arg))) {
     array_multisort(array_map(function($element) {
         return $element['connections'];
     }, $all_users), SORT_DESC, $all_users);
-  } else if ((count($roles) > 1) || (in_array('um_member', $roles))){
+  } else if ((count($roles_arg) > 1) || (in_array('um_member', $roles_arg))){
     array_multisort(array_map(function($element) {
         return $element['um_last_login'];
     }, $all_users), SORT_DESC, $all_users);
